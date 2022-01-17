@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/header/Header';
 import Leftsidebar from './components/leftsidebar/leftsidebar';
+import Rightsidebar from './components/rightsidebar/rightsidebar';
 
 
 // import { createTheme } from '@mui/material/styles';
@@ -19,6 +20,7 @@ function App() {
     <div>
       <Header/>
       <Leftsidebar/>
+      <Rightsidebar/>
     </div>
   );
 }
