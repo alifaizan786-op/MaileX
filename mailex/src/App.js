@@ -1,5 +1,7 @@
 import React from 'react';
 import Header from './components/header/Header';
+import Leftsidebar from './components/leftsidebar/leftsidebar';
+
 
 // import { createTheme } from '@mui/material/styles';
 // import { teal } from '@material-ui/core/colors';
@@ -16,7 +18,7 @@ function App() {
   return (
     <div>
       <Header/>
-      
+      <Leftsidebar/>
     </div>
   );
 }

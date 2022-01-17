@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap');
+
+
+.leftsidebar {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 25%;
+    background-color: rgb(240, 242, 245);
+    width: 10%;
+    height: 30%;
+    margin: 0% 1%;
+    border-radius: 15px;
+}
+
+
+.leftsidebar a {
+    color: black;
+}
+
+.leftsidebar li {
+    padding: 5% 0%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 25px;
+}
+
+.button {
+    color: black; 
+}
