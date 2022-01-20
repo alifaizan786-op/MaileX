@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/header/Header';
 import Leftsidebar from './components/leftsidebar/leftsidebar';
 import Rightsidebar from './components/rightsidebar/rightsidebar';
+import LoginSignup from './components/LoginSignup/LoginSignup'
 
 
 // import { createTheme } from '@mui/material/styles';
@@ -18,9 +19,10 @@ import Rightsidebar from './components/rightsidebar/rightsidebar';
 function App() {
   return (
     <div>
-      <Header/>
-      <Leftsidebar/>
-      <Rightsidebar/>
+      {/* <Header/> */}
+      {/* <Rightsidebar/> */}
+      {/* <Leftsidebar/> */}
+      <LoginSignup/>
     </div>
   );
 }
