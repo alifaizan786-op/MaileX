@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {  teal } from '@mui/material/colors';
 
 
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -35,14 +36,14 @@ function Rightsidebar() {
     <ThemeProvider theme={theme}>
      <div className='rightsidebar'>
        <ul>
-         {contacts.map((contacts , index) => (
+         {contacts.map((name , index) => (
            <li key={index}>
            <Button>
              <Avatar sx={{ bgcolor: teal[500] }}>
-               {getInitials(contacts)}
+               {getInitials(name)}
              </Avatar>
              <p>
-               {contacts}
+               {name}
              </p>
            </Button>
           </li>
