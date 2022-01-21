@@ -31,8 +31,9 @@ const theme = createTheme({
 });
 
 
-function Login (handleFormChange) {
+function Login (haveAccount, setHaveAccount) {
   return (
+    <ThemeProvider theme={theme}>
     <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -78,30 +79,29 @@ function Login (handleFormChange) {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3}}
             >
               Sign In
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2" onClick={() => handleFormChange(false)} >
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick={() => setHaveAccount(!haveAccount)}
+            >
+              Don't Have A Account? Sign Up
+            </Button>
           </Box>
         </Box>
       </Container>
+      </ThemeProvider>
   )
 }
 
-function Signup (handleFormChange) {
+function Signup (haveAccount, setHaveAccount) {
   return (
+    <ThemeProvider theme={theme}>
     <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -157,25 +157,23 @@ function Signup (handleFormChange) {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3}}
             >
-              Sign In
+              Sign Up
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2" onClick={() => handleFormChange(false)}>
-                  {"I already have a account! Login"}
-                </Link>
-              </Grid>
-            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick={() => setHaveAccount(haveAccount)}
+            >
+              I have a Account! Sign In
+            </Button>
           </Box>
         </Box>
       </Container>
+      </ThemeProvider>
   )
 }
 
@@ -183,7 +181,15 @@ function Signup (handleFormChange) {
 function LoginSignup() {
   const [ haveAccount, setHaveAccount]  = useState(true)
 
-  const handleFormChange = (state) => setHaveAccount(state);
+  
+  const renderForm = () =>{
+    if (haveAccount){
+      return <Login handleFormChange={setHaveAccount} haveAccount={haveAccount}/>
+    }
+    else {
+      return <Signup handleFormChange={setHaveAccount} haveAccount={haveAccount}/>
+    }
+  }
 
   
   return (
@@ -197,14 +203,7 @@ function LoginSignup() {
         </div>
         <div className='formdiv'>
           <div className='form'>
-          <ThemeProvider theme={theme}>
-            {haveAccount ? (
-              <Login handleFormChange={handleFormChange} />
-            ) : (
-              <Signup handleFormChange={handleFormChange} />
-            )}
-          </ThemeProvider>
-
+            {renderForm()}
           </div>
         </div>
        
