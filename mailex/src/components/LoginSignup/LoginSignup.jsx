@@ -179,7 +179,8 @@ function Signup (haveAccount, setHaveAccount) {
 
 
 function LoginSignup() {
-  const [ haveAccount, setHaveAccount]  = useState(false)
+  const [ haveAccount, setHaveAccount]  = useState(true)
+ 
 
   
   const renderForm = () =>{

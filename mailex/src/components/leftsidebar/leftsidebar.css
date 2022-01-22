@@ -7,16 +7,17 @@
     position: fixed;
     top: 25%;
     background-color: rgb(240, 242, 245);
-    width: 15%;
-    height: 30%;
+    width: 210px;
+    height: 285px;
     margin: 0% 1%;
     border-radius: 15px;
 }
 
-
-.leftsidebar a {
-    color: black;
+.leftsidebar p {
+    padding-left: 15%;
+    
 }
+
 
 .leftsidebar li {
     padding: 5% 0%;
@@ -27,6 +28,18 @@
     font-size: 25px;
 }
 
-.button {
-    color: black; 
+.leftsidebarmob{
+    display: none;
 }
+
+@media screen and (max-width: 1007px) {
+    .leftsidebar {
+      display: none;
+    }
+
+    .leftsidebarmob{
+        display: flex;
+    }
+  
+    
+  }
