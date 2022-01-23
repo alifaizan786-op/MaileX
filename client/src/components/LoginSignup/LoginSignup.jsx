@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import * as React from 'react'
 import '../rightsidebar/rightsidebar.css'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button'
@@ -179,7 +179,7 @@ function Signup (haveAccount, setHaveAccount) {
 
 
 function LoginSignup() {
-  const [ haveAccount, setHaveAccount]  = useState(false)
+  const [ haveAccount, setHaveAccount]  = React.  useState(false)
  
 
   
