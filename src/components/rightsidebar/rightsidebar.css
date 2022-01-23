@@ -33,6 +33,14 @@
     font-size: 25px;
 }
 
+.rightsidebarmob{
+  display: none;
+}
+
+.MuiSpeedDialAction-staticTooltipLabel{
+  width: 150px;
+}
+
 
 @media screen and (max-width: 1280px) {
   .rightsidebar p {
@@ -53,4 +61,16 @@
     overflow-x: auto;
     max-height: 92%;
 }
+}
+
+@media screen and (max-width: 1007px) {
+  .rightsidebar {
+    display: none;
+  }
+
+  .rightsidebarmob{
+      display: flex;
+  }
+
+  
 }

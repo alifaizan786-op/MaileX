@@ -88,7 +88,7 @@ function Login (haveAccount, setHaveAccount) {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={() => setHaveAccount(!haveAccount)}
+              onClick={() => setHaveAccount(false)}
             >
               Don't Have A Account? Sign Up
             </Button>
@@ -166,7 +166,7 @@ function Signup (haveAccount, setHaveAccount) {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={() => setHaveAccount(haveAccount)}
+              onClick={() => setHaveAccount(true)}
             >
               I have a Account! Sign In
             </Button>
@@ -179,16 +179,16 @@ function Signup (haveAccount, setHaveAccount) {
 
 
 function LoginSignup() {
-  const [ haveAccount, setHaveAccount]  = useState(true)
+  const [ haveAccount, setHaveAccount]  = useState(false)
  
 
   
   const renderForm = () =>{
-    if (haveAccount){
-      return <Login handleFormChange={setHaveAccount} haveAccount={haveAccount}/>
+    if (!haveAccount){
+      return  <Signup handleFormChange={setHaveAccount} haveAccount={haveAccount}/>
     }
     else {
-      return <Signup handleFormChange={setHaveAccount} haveAccount={haveAccount}/>
+      return <Login handleFormChange={setHaveAccount} haveAccount={haveAccount}/>
     }
   }
 

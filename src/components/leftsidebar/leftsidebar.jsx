@@ -8,7 +8,6 @@ import Button from '@mui/material/Button'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Backdrop from '@mui/material/Backdrop';
 import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import {  teal } from '@mui/material/colors';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -96,7 +95,6 @@ function Leftsidebar() {
           />
         ))}
       </SpeedDial>
-          
      </div>
      </ThemeProvider>
   );
