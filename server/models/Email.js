@@ -17,8 +17,6 @@ const emailSchema = new Schema({
     emailbody : {
         type: String,
         required: true,
-        unique: true,
-        match: [/.+@.+\..+/, 'Must match an email address!'],
     },
     sentDate : {
         type : Date,
