@@ -1,111 +1,109 @@
 [
     {   
-        "first_Name": "Michael",
-        "last_Name": "Scott",
+        "firstName": "Michael",
+        "lastName": "Scott",
         "password": "m.scott",
         "email": "m.scott@mailex.com"
     },
     {
-        "first_Name": "Jim",
-        "last_Name": "Halpert",
+        "firstName": "Jim",
+        "lastName": "Halpert",
         "password": "j.halpert",
         "email": "j.halpert@mailex.com"
     },
     {
-        "first_Name": "Pam",
-        "last_Name": "Beesly",
+        "firstName": "Pam",
+        "lastName": "Beesly",
         "password": "p.beesly",
         "email": "p.beesly@mailex.com"
     },
     {   
-        "first_Name": "Dwight",
-        "last_Name": "Schrute",
+        "firstName": "Dwight",
+        "lastName": "Schrute",
         "password": "d.schrute",
         "email": "d.schrute@mailex.com"
     },
     {
-        "first_Name": "Stanley",
-        "last_Name": "Hudson",
+        "firstName": "Stanley",
+        "lastName": "Hudson",
         "password": "s.hudson",
         "email": "s.hudson@mailex.com"
     },
     {
-        "first_Name": "Phyllis",
-        "last_Name": "Lapin",
+        "firstName": "Phyllis",
+        "lastName": "Lapin",
         "password": "p.lapin",
         "email": "p.lapin@mailex.com"
     },
     {
-        "first_Name": "Angela",
-        "last_Name": "Martin",
+        "firstName": "Angela",
+        "lastName": "Martin",
         "password": "a.martin",
         "email": "a.martin@mailex.com"
     },
     {
-        "first_Name": "Oscar",
-        "last_Name": "Gutierrez",
+        "firstName": "Oscar",
+        "lastName": "Gutierrez",
         "password": "o.gutierrez",
         "email": "o.gutierrez@mailex.com"
     },
     {
-        "first_Name": "Kevin",
-        "last_Name": "Malone",
+        "firstName": "Kevin",
+        "lastName": "Malone",
         "password": "k.malone",
         "email": "k.malone@mailex.com"
     },
     {
-        "privilege_Level": 4,
-        "first_Name": "Toby",
-        "last_Name": "Flenderson",
+        "firstName": "Toby",
+        "lastName": "Flenderson",
         "password": "t.flenderson",
         "email": "t.flenderson@mailex.com"
     },
     {
-        "first_Name": "Darryl",
-        "last_Name": "Philibin",
+        "firstName": "Darryl",
+        "lastName": "Philibin",
         "password": "d.philbin",
         "email": "d.philbin@mailex.com"
     },
     {
-        "privilege_Level": 3,
-        "first_Name": "Robert",
-        "last_Name": "California",
+        "firstName": "Robert",
+        "lastName": "California",
         "password": "r.california",
         "email": "r.california@mailex.com"
     },
     {
-        "first_Name": "Josh",
-        "last_Name":"Porter" ,
+        "firstName": "Josh",
+        "lastName":"Porter" ,
         "password": "j.porter",
         "email": "j.porter@mailex.com"
     },
     {
-        "first_Name": "Andy",
-        "last_Name":"Bernard",
+        "firstName": "Andy",
+        "lastName":"Bernard",
         "password":"a.bernard",
         "email":"a.bernard@mailex.com"
     },
     {
-        "first_Name": "Karen",
-        "last_Name":"Filippelli",
+        "firstName": "Karen",
+        "lastName":"Filippelli",
         "password":"k.filipelli",
         "email":"k.filipelli@mailex.com"
     },
     {
-        "first_Name": "Tony",
-        "last_Name":"Gardner",
+        "firstName": "Tony",
+        "lastName":"Gardner",
         "password":"t.gardner",
         "email":"t.gardner@mailex.com"
     },
     {
-        "first_Name": "Hannah",
-        "last_Name":"Smoterich-Barr",
+        "firstName": "Hannah",
+        "lastName":"Smoterich-Barr",
         "password":"h.barr",
         "email":"h.barr@dunndermifflin.com"
     },
     {
-        "first_Name": "Polly",
-        "last_Name":"Smith",
+        "firstName": "Polly",
+        "lastName":"Smith",
         "password":"p.smith",
         "email":"p.smith@dunndermifflin.com"
     }
