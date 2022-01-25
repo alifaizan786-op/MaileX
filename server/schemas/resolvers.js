@@ -6,7 +6,7 @@ const resolvers = {
             return await User.find({});
         },
         emails : async () => {
-            return await Email.find({});
+            return await Email.find({}).populate('users');
         }
     }
 };

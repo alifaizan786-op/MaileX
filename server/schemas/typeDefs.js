@@ -11,9 +11,9 @@ const typeDefs = gql`
     
     type Email {
         _id : ID
-        sender : String
-        recipient : String
-        emailbody : String
+        sender : [User]
+        recipient : [User]
+        emailbody : [String]
         sentDate : String
     }
 

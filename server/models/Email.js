@@ -3,16 +3,12 @@ const { Schema, model } = require('mongoose');
 
 const emailSchema = new Schema({
     sender : {
-        type: String,
-        required: true,
-        unique: false,
-        trim: true
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     },
     recipient : {
-        type: String,
-        required: true,
-        unique: false,
-        trim: true
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     },
     emailbody : {
         type: String,
