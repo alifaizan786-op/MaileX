@@ -1,29 +1,20 @@
 import React from 'react';
-import Header from './components/header/Header';
-import Leftsidebar from './components/leftsidebar/leftsidebar';
-import Rightsidebar from './components/rightsidebar/rightsidebar';
-import LoginSignup from './components/LoginSignup/LoginSignup'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Auth from './pages/auth';
+import Home from './pages/home';
 
 
-// import { createTheme } from '@mui/material/styles';
-// import { teal } from '@material-ui/core/colors';
 
-// const theme = createTheme({
-//   pallette: {
-//     primary: teal,
-//     secondary: teal
-//   }
-// })
-
-// In our main App component, we are rendering only single instances of Header and Navbar and several instances of Card
 function App() {
   return (
-    <div>
-      {/* <Header/>  */}
-      {/* <Rightsidebar/> */}
-      {/* <Leftsidebar/> */}
-      <LoginSignup/>
-    </div>
+    <Router>
+      <Route exact path="/auth">
+        <Auth />
+      </Route>
+      <Route exact path="/">
+        <Home />
+      </Route>
+    </Router>
   );
 }
 

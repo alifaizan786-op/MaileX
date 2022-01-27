@@ -13,13 +13,17 @@ const typeDefs = gql`
         _id : ID
         sender : [User]
         recipient : [User]
-        emailbody : [String]
+        emailbody : String
         sentDate : String
     }
 
     type Query {
         users : [User]
         emails : [Email]
+    }
+
+    type Mutation {
+        addemail(sender: ID!, recipient: ID!, emailbody: String!): Email
     }
 `;
 

@@ -17,5 +17,7 @@ connection.once('open', async() => {
 
     console.info('================Users Seeded================');
 
+    await Email.deleteMany({})
+
     process.exit(0);
 })
