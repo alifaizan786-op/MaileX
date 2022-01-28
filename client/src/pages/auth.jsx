@@ -42,10 +42,10 @@ function LoginSignup() {
         </div>
         <div className='formdiv'>
           <div className='form'>
-          <Route  path="/login">
+          <Route  path="/auth/login">
               <Login />
           </Route>
-          <Route exact path="/signup">
+          <Route exact path="/auth/signup">
               <Signup />
           </Route>
           </div>

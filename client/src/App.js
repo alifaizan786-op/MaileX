@@ -8,10 +8,10 @@ import Home from './pages/home';
 function App() {
   return (
     <Router>
-      <Route exact path="/auth">
+      <Route path="/auth">
         <Auth />
       </Route>
-      <Route exact path="/">
+      <Route exact path="/home">
         <Home />
       </Route>
     </Router>
