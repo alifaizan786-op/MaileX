@@ -3,12 +3,21 @@ const { Schema, model } = require('mongoose');
 
 const emailSchema = new Schema({
     sender : {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+        type: String,
+        required: true,
+        unique: true,
+        match: [/.+@.+\..+/, 'Must match an email address!'],
     },
     recipient : {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+        type: String,
+        required: true,
+        unique: true,
+        match: [/.+@.+\..+/, 'Must match an email address!'],
+    },
+    subject : {
+        type: String,
+        minlength: 1,
+        maxlength: 70,
     },
     emailbody : {
         type: String,

@@ -25,6 +25,18 @@ const userSchema = new Schema({
         required: true,
         minlength: 5,
     },
+    sentEmails: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Email',
+        },
+    ],
+    receivedEmails: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Email',
+        },
+    ],
 })
 
 const User = model('User', userSchema);
