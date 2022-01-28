@@ -1,0 +1,49 @@
+[
+    {
+        "sender" : "m.scott@mailex.com",
+        "recipient" : "j.halpert@mailex.com",
+        "subject": "Introduction",
+        "emailbody": "Hi, I am Michael Scott"
+    },
+    {
+        "sender" : "j.halpert@mailex.com",
+        "recipient" : "m.scott@mailex.com",
+        "subject": "Introduction",
+        "emailbody": "Hey, I am Jim. Nice to meet you"
+    },{
+        "sender" : "m.scott@mailex.com",
+        "recipient" : "j.halpert@mailex.com",
+        "subject": "Introduction",
+        "emailbody": "Nice to meet you to Jim"
+    },{
+        "sender" : "p.beesly@mailex.com",
+        "recipient" : "j.halpert@mailex.com",
+        "subject": "Introduction",
+        "emailbody": "Hi, I am Pam Beesly"
+    },{
+        "sender" : "j.halpert@mailex.com",
+        "recipient" : "p.beesly@mailex.com",
+        "subject": "Introduction",
+        "emailbody": "Hi, I am Jim Halpert, Nice to meet you Pam"
+    },{
+        "sender" : "p.beesly@mailex.com",
+        "recipient" : "j.halpert@mailex.com",
+        "subject": "Introduction",
+        "emailbody": "Nice to Meet you too, Jim"
+    },{
+        "sender" : "d.schrute@mailex.com",
+        "recipient" : "p.beesly@mailex.com",
+        "subject": "Introduction",
+        "emailbody": "Hi, I am Dwight Schrute, Owner Of A Beet Farm"
+    },{
+        "sender" : "p.beesly@mailex.com",
+        "recipient" : "d.schrute@mailex.com",
+        "subject": "Introduction",
+        "emailbody": "Hey, I am Pam Beesly. Nice to meet you Dwight"
+    },{
+        "sender" : "d.schrute@mailex.com",
+        "recipient" : "p.beesly@mailex.com",
+        "subject": "Introduction",
+        "emailbody": "Get out of my inbox, peasant"
+    }
+]
