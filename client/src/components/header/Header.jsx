@@ -3,6 +3,8 @@ import '../header/header.css'
 import { AppBar, Avatar, Badge, Toolbar, Typography} from '@mui/material';
 import { alpha, InputBase, makeStyles } from '@material-ui/core';
 import {Cancel,  Search } from '@mui/icons-material';
+import Button from '@mui/material/Button'
+import MenuIcon from '@mui/icons-material/Menu';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -10,23 +12,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     background: '#008080',
   },
-  logoLg: {
-    display: "none",
-    [theme.breakpoints.up("sm")]: {
+  logo: {
       display: "block",
       fontFamily: 'Old Standard TT',
       fontWeight: 'bolder'
-    },
-  },
-  logoSm: {
-    display: "block",
-    fontFamily: 'Old Standard TT',
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
   },
   search: {
-    display: "flex",
     alignItems: "center",
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     "&:hover": {
@@ -34,30 +25,24 @@ const useStyles = makeStyles((theme) => ({
     },
     borderRadius: 20,
     
-    [theme.breakpoints.down("sm")]: {
-      display: (props) => (props.open ? "flex" : "none"),
+    display: (props) => (props.open ? "flex" : "none"),
       
-    },
   },
   input: {
     color: "white",
     marginLeft: theme.spacing(1),
   },
-  cancel: {
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
-  },
   searchButton: {
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
+    
   },
   icons: {
     alignItems: "center",
     display: (props) => (props.open ? "none" : "flex"),
   },
+  MenuIcon: {
+    color: alpha(theme.palette.common.white, 1),
+  }
  
 }));
 
@@ -67,11 +52,12 @@ function Header() {
   const classes = useStyles({open});
   return (
     <AppBar position='fixed'>
+      
         <Toolbar className={classes.toolbar}>
-          <Typography variant='h4' className={classes.logoLg}>
-              Mail-eX
-          </Typography>
-          <Typography variant='h4'className={classes.logoSm}>
+          <Button className={classes.MenuIcon}>
+            <MenuIcon/>
+          </Button>
+          <Typography variant='h4' className={classes.logo}>
               Mail-eX
           </Typography>
           <div className={classes.search}>
