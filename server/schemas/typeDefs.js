@@ -7,21 +7,20 @@ const typeDefs = gql`
         lastName : String
         email : String
         password : String
-        sentEmail: [Email]
+        sentEmail: [Email]!
     }
     
     type Email {
         _id : ID
-        sender : [User]
-        recipient : [User]
+        sender : String
+        recipient : String
         emailbody : String
         sentDate : String
     }
 
     type Query {
         users : [User]
-        emails : [Email]
-        user(email: String!): User
+        emails(email: String) : [Email]
     }
 
     type Mutation {

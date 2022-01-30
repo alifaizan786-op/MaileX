@@ -5,15 +5,10 @@ const resolvers = {
         users : async () => {
             return await User.find({}).populate('emails');
         },
-        user: async (parent, { email }) => {
-            return User.findOne({ email }).populate('emails');
+        emails : async (parent, { email }) => {
+            const params = email ? { email } : {};
+            return await Email.find(params).sort({ sentDate: -1 });
         },
-        emails : async () => {
-            return await Email.find({}).populate('users');
-        },
-        email : async () => {
-            return await Email.find({ $or:[{sender},{subject}]}).populate('users');
-        }
     },
     Mutation : {
         addemail : async (parent, {sender, recipient, subject, emailbody}) => {
