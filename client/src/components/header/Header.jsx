@@ -5,8 +5,13 @@ import { alpha, InputBase, makeStyles } from '@material-ui/core';
 import {Cancel,  Search } from '@mui/icons-material';
 import Button from '@mui/material/Button'
 import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const useStyles = makeStyles((theme) => ({
+  appbar:{
+    zIndex:1300
+  },
   toolbar: {
     display: "flex",
     justifyContent: "space-between",
@@ -47,16 +52,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function Header() {
+function Header(props) {
   const [open,setOpen]=useState(false);
   const classes = useStyles({open});
+  console.log(props.current)
+
+  console.log(props.current)
+
   return (
-    <AppBar position='fixed'>
+    <AppBar position='fixed' className={classes.appbar}> 
       
         <Toolbar className={classes.toolbar}>
-          <Button className={classes.MenuIcon}>
-            <MenuIcon/>
-          </Button>
+          {props.current ? 
+          <Button className={classes.MenuIcon} onClick={props.close}>
+          <ChevronLeftIcon/>
+        </Button>
+          :
+          <Button className={classes.MenuIcon} onClick={props.open}>
+          <ChevronRightIcon/>
+        </Button>
+          }
+          
           <Typography variant='h4' className={classes.logo}>
               Mail-eX
           </Typography>
@@ -70,7 +86,7 @@ function Header() {
             onClick={() => setOpen(true)} />
         
           <Avatar
-            alt="Remy Sharp"
+            alt="user img"
             src="https://raw.githubusercontent.com/alifaizan786-op/Full_Stack_Portfolio/main/assets/images/placeholder.png"
           />
           </div>
