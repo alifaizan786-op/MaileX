@@ -10,6 +10,9 @@ const resolvers = {
         },
         emails : async () => {
             return await Email.find({}).populate('users');
+        },
+        email : async () => {
+            return await Email.find({ $or:[{sender},{subject}]}).populate('users');
         }
     },
     Mutation : {
