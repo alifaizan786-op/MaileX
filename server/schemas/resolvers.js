@@ -3,11 +3,10 @@ const { Email, User } = require('../models')
 const resolvers = {
     Query : {
         users : async () => {
-            return await User.find({}).populate('emails');
+            return await User.find({}).populate('sentEmails').populate('receivedEmails');
         },
-        emails : async (parent, { email }) => {
-            const params = email ? { email } : {};
-            return await Email.find(params).sort({ sentDate: -1 });
+        emails : async () => {
+            return await Email.find().sort({ sentDate: -1 });
         },
     },
     Mutation : {

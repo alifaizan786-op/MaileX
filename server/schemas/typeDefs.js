@@ -7,7 +7,8 @@ const typeDefs = gql`
         lastName : String
         email : String
         password : String
-        sentEmail: [Email]!
+        sentEmails: [Email]!
+        receivedEmails: [Email]!
     }
     
     type Email {
@@ -20,7 +21,7 @@ const typeDefs = gql`
 
     type Query {
         users : [User]
-        emails(email: String) : [Email]
+        emails : [Email]
     }
 
     type Mutation {
