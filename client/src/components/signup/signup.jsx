@@ -6,17 +6,14 @@ import { createTheme, ThemeProvider} from '@mui/material/styles';
 import {  teal } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
 import './signup.css'
+import FormHelperText from "@mui/material/FormHelperText";
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
+import InputAdornment from '@mui/material/InputAdornment';
 import Box from '@mui/material/Box';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
+import OutlinedInput from "@mui/material/OutlinedInput";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import ParticlesBackground from '../ParticlesBackground/ParticlesBackground';
 
 
 
@@ -34,8 +31,8 @@ const theme = createTheme({
 
 
 function Signup (haveAccount, setHaveAccount) {
+
   return (
-    
     <ThemeProvider theme={theme}>
     <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -51,9 +48,10 @@ function Signup (haveAccount, setHaveAccount) {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign Up
           </Typography>
           <Box component="form"  noValidate sx={{ mt: 1, mb: 5 }}>
+            
             <TextField
               margin="normal"
               required
@@ -63,6 +61,7 @@ function Signup (haveAccount, setHaveAccount) {
               name="First Name"
               autoComplete="First Name"
               autoFocus
+              sx={{ mt: 2, mb: 1 }}
             />
             <TextField
               margin="normal"
@@ -73,8 +72,25 @@ function Signup (haveAccount, setHaveAccount) {
               name="Last Name"
               autoComplete="Last Name"
               autoFocus
+              sx={{ mt: 2, mb: 2 }}
             />
+            <OutlinedInput
+              sx={{ mt: 2}}
+              endAdornment={<InputAdornment position="start">@mail-ex.com</InputAdornment>}
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email"
+              name="Email"
+              autoComplete="Email"
+              autoFocus
+            />
+            <FormHelperText id="outlined-weight-helper-text" sx={{mb: 2 }}>
+            Email
+          </FormHelperText>
             <TextField
+              sx={{ mt: 0, mb: 2 }}
               margin="normal"
               required
               fullWidth
@@ -83,10 +99,7 @@ function Signup (haveAccount, setHaveAccount) {
               type="password"
               id="password"
               autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              
             />
             <Button
               type="submit"
