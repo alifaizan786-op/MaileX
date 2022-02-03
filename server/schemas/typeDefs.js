@@ -18,6 +18,11 @@ const typeDefs = gql`
         sentDate : String
     }
 
+    type Auth {
+        token: ID!
+        user: User
+    }
+
     type Query {
         users : [User]
         emails : [Email]
@@ -25,7 +30,7 @@ const typeDefs = gql`
 
     type Mutation {
         addemail(senderemail: String!, recipientemail: String!, subject: String , emailbody: String!): Email
-        addUser(firstName: String!, lastName: String!, email: String!, password: String! ): User
+        addUser(firstName: String!, lastName: String!, email: String!, password: String! ): Auth
     }
 `;
 

@@ -7,7 +7,7 @@ connection.on('error', (err) => err);
 
 connection.once('open', async() => {
     console.log('connected');
-
+    try{
     await User.deleteMany({})
 
     console.log('================Collections Emptied================');
@@ -40,8 +40,13 @@ connection.once('open', async() => {
         let emailCreation = await Email.create(mail);
         
     }
+    
 
     console.info('================Users Seeded================');
+} catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
 
     process.exit(0);
 })
