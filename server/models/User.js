@@ -24,19 +24,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         minlength: 5,
-    },
-    sentEmails: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: 'Email',
-        },
-    ],
-    receivedEmails: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: 'Email',
-        },
-    ],
+    }
 })
 
 userSchema.pre('save', async function (next) {

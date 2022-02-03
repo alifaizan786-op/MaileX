@@ -3,16 +3,12 @@ const dateFormat = require('../utils/dateFormat');
 
 const emailSchema = new Schema({
     sender : {
-        type: String,
-        required: true,
-        unique: true,
-        match: [/.+@.+\..+/, 'Must match an email address!'],
+        type: Schema.Types.ObjectId,
+        ref: 'User',
     },
     recipient : {
-        type: String,
-        required: true,
-        unique: true,
-        match: [/.+@.+\..+/, 'Must match an email address!'],
+        type: Schema.Types.ObjectId,
+        ref: 'User',
     },
     subject : {
         type: String,
@@ -25,8 +21,8 @@ const emailSchema = new Schema({
     },
     sentDate : {
         type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
     },
 })
 

@@ -3,31 +3,21 @@ const { Email, User } = require('../models')
 const resolvers = {
     Query : {
         users : async () => {
-            return await User.find({}).populate('sentEmails').populate('receivedEmails');
-        },
-        user : async (parent, { email }) => {
-            return await User.findOne({email}).populate('sentEmails').populate('receivedEmails');
+            return await User.find({});
         },
         emails : async () => {
-            return await Email.find().sort({ sentDate: -1 });
-        },
-        email : async (parent, { sender }) => {
-            return await Email.findOne({ sender }).sort({ sentDate: -1 });
+            return await Email.find().populate('sender').populate('recipient');
         },
     },
     Mutation : {
-        addemail : async (parent, {sender, recipient, subject, emailbody}) => {
+        addemail : async (parent, {senderemail, recipientemail, subject, emailbody}) => {
+            ({_id : this._Ssender} = await User.findOne({ email: senderemail }));
+            const sender = this._Ssender;
+
+            ({_id : this._Rrecipient} = await User.findOne({ email: recipientemail }));
+            const recipient = this._Rrecipient;
+
             const newemail = await Email.create({ sender, recipient, subject, emailbody});
-
-            await User.findOneAndUpdate(
-                { email: newemail.sender },
-                { $addToSet : { sentEmails: newemail._id }}
-            )
-
-            await User.findOneAndUpdate(
-                { email: newemail.recipient },
-                { $addToSet : { receivedEmails: newemail._id }}
-            )
 
             return newemail
         },

@@ -21,15 +21,22 @@ connection.once('open', async() => {
     await Email.deleteMany({})
 
     for (let i = 0; i < emailSeeds.length; i++){
-        const {_id, sender, recipient} = await Email.create(emailSeeds[i]);
-        const Ssender = await User.findOneAndUpdate(
-            { email: sender },
-            { $addToSet : { sentEmails: _id }}
-        )
-        const Rrecipient = await User.findOneAndUpdate(
-            { email: recipient },
-            { $addToSet : { receivedEmails: _id }}
-        )
+        // const {_id, sender, recipient} = await Email.create(emailSeeds[i]);
+        ({_id : this._Ssender} = await User.findOne({ email: emailSeeds[i].sender }));
+        const senderId = this._Ssender;
+
+        ({_id : this._Rrecipient} = await User.findOne({ email: emailSeeds[i].recipient }));
+        const recipientId = this._Rrecipient;
+
+        const mail = {
+            sender: senderId,
+            recipient: recipientId,
+            subject: emailSeeds[i].subject,
+            emailbody : emailSeeds[i].emailbody
+        };
+
+        let emailCreation = await Email.create({mail});
+        
     }
 
     console.info('================Users Seeded================');
