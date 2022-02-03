@@ -35,7 +35,9 @@ connection.once('open', async() => {
             emailbody : emailSeeds[i].emailbody
         };
 
-        let emailCreation = await Email.create({mail});
+        console.log(mail);
+
+        let emailCreation = await Email.create(mail);
         
     }
 
