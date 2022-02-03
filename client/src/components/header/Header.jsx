@@ -7,10 +7,12 @@ import Button from '@mui/material/Button'
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import Grid from '@mui/material/Grid';
 
 const useStyles = makeStyles((theme) => ({
   appbar:{
-    zIndex:1300
+    zIndex:1300,
+    background: '#008080',
   },
   toolbar: {
     display: "flex",
@@ -18,11 +20,16 @@ const useStyles = makeStyles((theme) => ({
     background: '#008080',
   },
   logo: {
-      display: "block",
-      fontFamily: 'Old Standard TT',
-      fontWeight: 'bolder'
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems:"center",
+    [theme.breakpoints.down("xs")]: {
+    justifyContent:"left",
+    },
   },
   search: {
+    margin: '10px 0px 0px 0px',
+    justifyContent: 'space-between',
     alignItems: "center",
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     "&:hover": {
@@ -38,15 +45,43 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
   },
   searchButton: {
+    padding: 10,
     marginRight: theme.spacing(2),
     
   },
   icons: {
-    alignItems: "center",
+    margin: '5px 10px 0px 0px',
+    justifyContent: 'right',
     display: (props) => (props.open ? "none" : "flex"),
   },
   MenuIcon: {
+    margin: 5,
     color: alpha(theme.palette.common.white, 1),
+  },
+  logoLg: {
+      display: 'flex',
+      justifyContent: 'center',
+      margin: 5,
+      fontFamily: 'Old Standard TT',
+      fontWeight: 'bolder',
+      display: "none",
+    [theme.breakpoints.up("sm")]: {
+      display: "block",
+      
+    },
+  },
+  logoSm: {
+      alignitems: 'center',
+      justifyContent: 'center',
+      margin: '5px 5px 0px 0px',
+      marginbottom: 0,
+      fontFamily: 'Old Standard TT',
+      fontWeight: 'bolder',
+      display: "block",
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+      
+    },
   }
  
 }));
@@ -62,36 +97,39 @@ function Header(props) {
   return (
     <AppBar position='fixed' className={classes.appbar}> 
       
-        <Toolbar className={classes.toolbar}>
-          {props.current ? 
-          <Button className={classes.MenuIcon} onClick={props.close}>
-          <ChevronLeftIcon/>
-        </Button>
-          :
-          <Button className={classes.MenuIcon} onClick={props.open}>
-          <ChevronRightIcon/>
-        </Button>
-          }
-          
-          <Typography variant='h4' className={classes.logo}>
-              Mail-eX
+      <Grid container spacing={3}>
+        <Grid item xs={2} sm={3} md={3}>
+            {props.current ? 
+            <Button className={classes.MenuIcon} onClick={props.close}>
+            <ChevronLeftIcon/>
+          </Button>
+            :
+            <Button className={classes.MenuIcon} onClick={props.open}>
+            <ChevronRightIcon/>
+          </Button>
+            }
+        </Grid>
+        <Grid item xs={4}  sm={6} md={6} className={classes.logo}>
+          <Typography variant='h4' className={classes.logoLg}>
+              <a href="#">Mail-eX</a>
           </Typography>
-          <div className={classes.search}>
-            <Search/>
-            <InputBase placeholder='Search' className={classes.input}/>
-            <Cancel className={classes.cancel} onClick={() => setOpen(false)} />
-        </div>
-          <div className={classes.icons}>
-            <Search className={classes.searchButton} 
-            onClick={() => setOpen(true)} />
-        
-          <Avatar
-            alt="user img"
-            src="https://raw.githubusercontent.com/alifaizan786-op/Full_Stack_Portfolio/main/assets/images/placeholder.png"
-          />
+          <Typography variant='h5'className={classes.logoSm}>
+              <a href="#">Mail-eX</a>
+          </Typography>
+        </Grid>
+        <Grid item xs={5.9} sm={3} md={3} >
+            <div className={classes.search}>
+              <Search/>
+              <InputBase placeholder='Search' className={classes.input}/>
+              <Cancel className={classes.cancel} onClick={() => setOpen(false)} />
           </div>
-          
-        </Toolbar>
+            <div className={classes.icons}>
+              <Search className={classes.searchButton} 
+              onClick={() => setOpen(true)} />
+            </div>
+        </Grid>
+            
+      </Grid>
     </AppBar>
     
   );

@@ -1,30 +1,30 @@
-import React from 'react';
-import '../leftsidebar/leftsidebar.css'
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import StarIcon from '@mui/icons-material/Star';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AnnouncementIcon from '@mui/icons-material/Announcement';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {  teal } from '@mui/material/colors';
-
-import { styled, useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
+import React, { useState } from "react";
+import "../leftsidebar/leftsidebar.css";
+import { alpha, InputBase, makeStyles } from "@material-ui/core";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import { Drafts, Logout, Send, Settings } from "@mui/icons-material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { teal } from "@mui/material/colors";
+import { styled } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import CssBaseline from "@mui/material/CssBaseline";
-import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
+import { Avatar } from "@mui/material";
 
+const useStyles = makeStyles((theme) => ({
+  sidebarPadding: {
+    paddingTop: "60px",
+  },
+  root: {
+    "& .MuiPaper-root": {
+      display: "flex",
+      justifyContent: "space-between",
+    },
+  },
+}));
 
 const theme = createTheme({
   palette: {
@@ -32,7 +32,7 @@ const theme = createTheme({
       main: teal[500],
     },
     secondary: {
-      main: '#f44336',
+      main: "#f44336",
     },
   },
   breakpoints: {
@@ -43,40 +43,16 @@ const theme = createTheme({
       xl: 1536,
     },
   },
+  drawer: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
 });
-
-const menu = [
-  {
-    icon: <InboxIcon fontSize="large" sx={{ color: teal[900]}}/>,
-    name: 'Inbox'
-  },
-  {
-    icon: <StarIcon fontSize="large" sx={{ color: teal[900]}}/>,
-    name: 'Starred'
-  },
-  {
-    icon: <DeleteIcon fontSize="large" sx={{ color: teal[900]}}/>,
-    name: 'Trash'
-  },
-  {
-    icon: <AnnouncementIcon fontSize="large" sx={{ color: teal[900]}}/>,
-    name: 'Spam'
-  },
-]
 
 const drawerWidth = 240;
 
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar
-}));
-
 const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open"
+  shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   width: drawerWidth,
   flexShrink: 0,
@@ -84,73 +60,99 @@ const Drawer = styled(MuiDrawer, {
   boxSizing: "border-box",
   ...(open && {
     ...openedMixin(theme),
-    "& .MuiDrawer-paper": openedMixin(theme)
+    "& .MuiDrawer-paper": openedMixin(theme),
   }),
   ...(!open && {
     ...closedMixin(theme),
-    "& .MuiDrawer-paper": closedMixin(theme)
-  })
+    "& .MuiDrawer-paper": closedMixin(theme),
+  }),
 }));
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen
+    duration: theme.transitions.duration.enteringScreen,
   }),
-  overflowX: "hidden"
+  overflowX: "hidden",
 });
 
 const closedMixin = (theme) => ({
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen
+    duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: "hidden",
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
-    width: `calc(${theme.spacing(9)} + 1px)`
-  }
+    width: `calc(${theme.spacing(9)} + 1px)`,
+  },
 });
 
 function Leftsidebar(props) {
-
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const classes = useStyles();
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
   return (
     <ThemeProvider theme={theme}>
-     <Drawer variant="permanent" open={props.current}>
-        <DrawerHeader>
-          <IconButton onClick={props.close}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+      <Drawer variant="permanent" open={props.current} className={classes.root}>
+        <List className={classes.sidebarPadding}>
+          <ListItemButton
+            selected={selectedIndex === 0}
+            onClick={(event) => handleListItemClick(event, 0)}
+          >
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Inbox" />
+          </ListItemButton>
+          <ListItemButton
+            selected={selectedIndex === 1}
+            onClick={(event) => handleListItemClick(event, 1)}
+          >
+            <ListItemIcon>
+              <Send />
+            </ListItemIcon>
+            <ListItemText primary="Sent Mail" />
+          </ListItemButton>
+          <ListItemButton
+            selected={selectedIndex === 2}
+            onClick={(event) => handleListItemClick(event, 2)}
+          >
+            <ListItemIcon>
+              <Drafts />
+            </ListItemIcon>
+            <ListItemText primary="Drafts" />
+          </ListItemButton>
         </List>
-        <Divider />
+
         <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItemButton>
+            <ListItemIcon>
+              <Settings />
+            </ListItemIcon>
+            <ListItemText primary="Setting" />
+          </ListItemButton>
+          <ListItemButton>
+            <ListItemIcon>
+              <Logout />
+            </ListItemIcon>
+            <ListItemText primary="Logout" />
+          </ListItemButton>
+          <ListItemButton>
+            <ListItemIcon>
+              <Avatar
+                alt="user img"
+                src="https://raw.githubusercontent.com/alifaizan786-op/Full_Stack_Portfolio/main/assets/images/placeholder.png"
+              />
+            </ListItemIcon>
+            <ListItemText primary="Farid Virani" />
+          </ListItemButton>
         </List>
       </Drawer>
-     </ThemeProvider>
+    </ThemeProvider>
   );
 }
 

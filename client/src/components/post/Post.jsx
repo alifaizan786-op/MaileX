@@ -1,63 +1,57 @@
-import "./post.css"
-import {MoreVert,Reply,Forward,Delete} from "@mui/icons-material"
-import { grid } from "@mui/system";
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Avatar from "@mui/material/Avatar";
+import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { teal, grey } from "@mui/material/colors";
+import {  Reply, Forward, Delete } from "@mui/icons-material";
 
 
 
-export default function Post(post) {
+export default function Post() {
   return (
-    <div className="post">
-        <div className="postWrapper">
-
-        <div className="postTop">
-        <div className="postTopLeft">
-        <img src="https://raw.githubusercontent.com/alifaizan786-op/Full_Stack_Portfolio/main/assets/images/placeholder.png" alt="" className="postProfileImg" />
-                <div>
-                <div>
-        <span className="postUsername">Farid Virani (Iruna Digital) </span>
-                </div>
-                <div>
-        <span className="postEmail">
-        <span className="postDate">Farid Virani</span>
-        &lt;mharriston@mitre.org&gt;
-        <span className="postDate">. 23h</span></span>
-                </div>
-                </div>
-                </div>
-        <div className="postTopRight"><MoreVert/></div>
-        </div>
-        <div className="postCenter">
-               {/* <img src="assets\post\1.jpeg" alt="" className="postImg" /> */}
-        <p className="postText">
-            Google Doodle honouring Parween  Rahman on her birthday. Rahman was a social activist and director of the Orangi Pilot Project Research and Training Institute. She was murdered on 13 March 2013.
-            #GoogleDoodle
-          </p>       
-        <hr className="postHr" /> 
-        </div>  
+    <Card sx={{ maxWidth: 1, marginTop: "50px" }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: teal[500] }} aria-label="recipe">
+            FV
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title="Introduction"
+        subheader="Farid Virani<mharriston@mitre.org>"
         
-        <grid item xs={12}  container spacing={2} className="postBottom">
-            
-            <div item xs={4}className="postBottomLeft">
-              <span className="postIcon"><Reply/></span>
-               <span className="postLikeCounter">Reply</span>
-            </div>
-            <div className="postBottomLeft">
-                <span className="postIcon"><Forward/></span>
-                <span className="postCommentText">Forward</span>
-            </div>
-            <div className="postBottomLeft">
-            <span className="postIcon"><Delete/></span> 
-                <span className="postCommentText">Delete</span>
-            </div>
-            
-          </grid>
-      </div>
-      
-  
-      
-  </div>
-  
-
-  
+      />
+      <CardContent>
+        <Typography variant="body1" color="text.primary">
+          Google Doodle honouring Parween Rahman on her birthday. Rahman was a
+          social activist and director of the Orangi Pilot Project Research and
+          Training Institute. She was murdered on 13 March 2013. #GoogleDoodle
+        </Typography>
+      </CardContent>
+      <CardActions sx={{ display: "flex", justifyContent: "space-around" }}>
+        <Button sx={{ color: grey[500] }}>
+          <Reply  />
+          Reply
+        </Button>
+        <Button sx={{ color: grey[500] }}>
+          <Forward />
+          Forward
+        </Button>
+        <Button sx={{ color: grey[500] }}>
+          <Delete />
+          Delete
+        </Button>
+      </CardActions>
+    </Card>
   );
 }
