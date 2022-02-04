@@ -3,6 +3,7 @@
   "homepage": "https://alifaizan786-op.github.io/MaileX",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
@@ -20,7 +21,10 @@
     "react-scripts": "5.0.0",
     "react-tsparticles": "^1.39.0",
     "styled-components": "^5.3.3",
-    "web-vitals": "^2.1.3"
+    "web-vitals": "^2.1.3",
+    "graphql": "^15.4.0",
+    "jwt-decode": "^3.1.2",
+    "@apollo/client": "^3.3.5"
   },
   "scripts": {
     "predeploy": "npm run build",

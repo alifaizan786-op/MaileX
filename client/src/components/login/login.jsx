@@ -1,24 +1,21 @@
-import * as React from 'react'
-import '../rightsidebar/rightsidebar.css'
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button'
-import { createTheme, ThemeProvider} from '@mui/material/styles';
-import {  teal } from '@mui/material/colors';
-import Typography from '@mui/material/Typography';
-import './login.css'
-import Container from '@mui/material/Container';
-import CssBaseline from '@mui/material/CssBaseline';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import TextField from '@mui/material/TextField';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import ParticlesBackground from '../ParticlesBackground/ParticlesBackground';
-
-
+import {React, useState} from "react";
+import "../rightsidebar/rightsidebar.css";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { teal } from "@mui/material/colors";
+import Typography from "@mui/material/Typography";
+import "./login.css";
+import Container from "@mui/material/Container";
+import CssBaseline from "@mui/material/CssBaseline";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 const theme = createTheme({
   palette: {
@@ -26,33 +23,65 @@ const theme = createTheme({
       main: teal[500],
     },
     secondary: {
-      main: '#f44336',
+      main: "#f44336",
     },
   },
 });
 
+function Login() {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
-function Login () {
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      email: '',
+      password: '',
+    });
+  };
+
+
   return (
-    
     <ThemeProvider theme={theme}>
-    <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form"  noValidate sx={{ mt: 1, mb: 5 }}>
+          <Box component="form" noValidate sx={{ mt: 1, mb: 5 }}>
             <TextField
               margin="normal"
               required
@@ -62,6 +91,8 @@ function Login () {
               name="email"
               autoComplete="email"
               autoFocus
+              value={formState.email}
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -72,17 +103,15 @@ function Login () {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={formState.password}
+              onChange={handleChange}
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3}}
-            >
+            <Button 
+              type="submit" 
+              fullWidth variant="contained" 
+              sx={{ mt: 3 }}
+              onClick={handleFormSubmit}
+              >
               Sign In
             </Button>
             <Button
@@ -90,15 +119,15 @@ function Login () {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              href='/signup'
+              href="/signup"
             >
               Don't Have A Account? Sign Up
             </Button>
           </Box>
         </Box>
       </Container>
-      </ThemeProvider>
-  )
+    </ThemeProvider>
+  );
 }
 
 export default Login;
