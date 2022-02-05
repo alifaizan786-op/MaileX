@@ -8,8 +8,6 @@ import Typography from "@mui/material/Typography";
 import "./login.css";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -119,7 +117,7 @@ function Login() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              href="/signup"
+              href="/auth/signup"
             >
               Don't Have A Account? Sign Up
             </Button>

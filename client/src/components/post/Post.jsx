@@ -13,13 +13,14 @@ import {  Reply, Forward, Delete } from "@mui/icons-material";
 
 
 
-export default function Post() {
+export default function Post(props) {
+  console.log(`${props.senderfname} ${props.senderlname} <${props.senderemail}> ${props.sentDate}`);
   return (
-    <Card sx={{ maxWidth: 1, marginTop: "50px" }}>
+    <Card sx={{ maxWidth: 1, marginTop: "50px", boxShadow: 5, borderRadius: '16px' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: teal[500] }} aria-label="recipe">
-            FV
+            {`${props.senderfname[0]}${props.senderlname[0]}`}
           </Avatar>
         }
         action={
@@ -27,15 +28,13 @@ export default function Post() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Introduction"
-        subheader="Farid Virani<mharriston@mitre.org>"
+        title={props.subject}
+        subheader={`${props.senderfname} ${props.senderlname} <${props.senderemail}> ${props.sentDate}`}
         
       />
       <CardContent>
         <Typography variant="body1" color="text.primary">
-          Google Doodle honouring Parween Rahman on her birthday. Rahman was a
-          social activist and director of the Orangi Pilot Project Research and
-          Training Institute. She was murdered on 13 March 2013. #GoogleDoodle
+          {props.emailbody}
         </Typography>
       </CardContent>
       <CardActions sx={{ display: "flex", justifyContent: "space-around" }}>
