@@ -12,7 +12,7 @@ connection.once('open', async() => {
 
     console.log('================Collections Emptied================');
 
-    await User.insertMany(userSeeds);
+    await User.create(userSeeds);
 
     console.table(userSeeds);
 
