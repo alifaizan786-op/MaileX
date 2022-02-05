@@ -5,6 +5,7 @@ import Rightsidebar from '../components/rightsidebar/rightsidebar';
 import Post from '../components/post/Post'
 import '../components/rightsidebar/rightsidebar.css'
 import { Grid } from '@mui/material';
+import Email from '../components/email/email'
 
 const emails = [
   {
@@ -120,6 +121,7 @@ function Home() {
        <Leftsidebar open={handleDrawerOpen} close={handleDrawerClose} current={draweropen}/>
      </Grid>
      <Grid item sm={7} xs={10} marginTop={"30px"} marginBottom={"30px"}>
+        <Email/>
        {emails.map((emailobj, index) => (
          <Post 
          senderfname={emailobj.sender.firstName} 
