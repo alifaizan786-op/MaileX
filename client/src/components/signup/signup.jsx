@@ -1,4 +1,4 @@
-import * as React from 'react'
+import {React, useState} from 'react'
 import '../rightsidebar/rightsidebar.css'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button'
@@ -15,6 +15,9 @@ import TextField from '@mui/material/TextField';
 import OutlinedInput from "@mui/material/OutlinedInput";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 
 const theme = createTheme({
@@ -30,7 +33,38 @@ const theme = createTheme({
 
 
 
-function Signup (haveAccount, setHaveAccount) {
+function Signup () {
+  const [formState, setFormState] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -58,7 +92,9 @@ function Signup (haveAccount, setHaveAccount) {
               fullWidth
               id="fName"
               label="First Name"
-              name="First Name"
+              name="firstName"
+              value={formState.firstName}
+              onChange={handleChange}
               autoComplete="First Name"
               autoFocus
               sx={{ mt: 2, mb: 1 }}
@@ -69,7 +105,9 @@ function Signup (haveAccount, setHaveAccount) {
               fullWidth
               id="lName"
               label="Last Name"
-              name="Last Name"
+              name="lastName"
+              value={formState.lastName}
+              onChange={handleChange}
               autoComplete="Last Name"
               autoFocus
               sx={{ mt: 2, mb: 2 }}
@@ -82,12 +120,14 @@ function Signup (haveAccount, setHaveAccount) {
               fullWidth
               id="email"
               label="Email"
-              name="Email"
+              name="email"
+              value={formState.email}
+              onChange={handleChange}
               autoComplete="Email"
               autoFocus
             />
             <FormHelperText id="outlined-weight-helper-text" sx={{mb: 2 }}>
-            Email
+            Username
           </FormHelperText>
             <TextField
               sx={{ mt: 0, mb: 2 }}
@@ -95,6 +135,8 @@ function Signup (haveAccount, setHaveAccount) {
               required
               fullWidth
               name="password"
+              value={formState.password}
+              onChange={handleChange}
               label="Password"
               type="password"
               id="password"
@@ -106,6 +148,7 @@ function Signup (haveAccount, setHaveAccount) {
               fullWidth
               variant="contained"
               sx={{ mt: 3}}
+              onClick={handleFormSubmit}
             >
               Sign Up
             </Button>

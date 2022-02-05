@@ -27,7 +27,10 @@ const theme = createTheme({
 });
 
 function Login() {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ 
+    email: '', 
+    password: '' 
+  });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
