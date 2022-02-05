@@ -33,7 +33,7 @@ const theme = createTheme({
 
 
 
-function Signup () {
+function Signup (props) {
   const [formState, setFormState] = useState({
     firstName: '',
     lastName: '',
@@ -157,7 +157,7 @@ function Signup () {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              href='/auth/login'
+              onClick={props.haveacc}
             >
               I have a Account! Sign In
             </Button>

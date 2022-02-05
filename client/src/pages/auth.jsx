@@ -31,8 +31,17 @@ const theme = createTheme({
 });
 
 function LoginSignup() {  
+  const [haveacc, sethaveacc] = React.useState(true);
+
+  const handlehaveacctrue = () => {
+    sethaveacc(true);
+  };
+
+  const handlehaveaccfalse = () => {
+    sethaveacc(false);
+  };
   return (
-    <Router>
+    <>
        <ParticlesBackground/>
        <div className='page'>
         <div className='logo'>
@@ -42,16 +51,15 @@ function LoginSignup() {
         </div>
         <div className='formdiv'>
           <div className='form'>
-          <Route  path="/auth/login">
-              <Login />
-          </Route>
-          <Route exact path="/auth/signup">
-              <Signup />
-          </Route>
+          {haveacc ? (
+              <Login donthaveacc={handlehaveaccfalse}/>
+              ):(
+              <Signup haveacc={handlehaveacctrue}/>
+              )}
           </div>
         </div>
        </div>
-    </Router>
+    </>
   );
 }
 

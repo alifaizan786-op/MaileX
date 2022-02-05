@@ -26,7 +26,7 @@ const theme = createTheme({
   },
 });
 
-function Login() {
+function Login(props) {
   const [formState, setFormState] = useState({ 
     email: '', 
     password: '' 
@@ -120,7 +120,7 @@ function Login() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              href="/auth/signup"
+              onClick={props.donthaveacc}
             >
               Don't Have A Account? Sign Up
             </Button>
