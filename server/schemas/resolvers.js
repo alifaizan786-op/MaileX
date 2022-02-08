@@ -10,6 +10,11 @@ const resolvers = {
         emails : async () => {
             return await Email.find().populate('sender').populate('recipient');
         },
+        inbox : async (parent, args, context) => {
+            if (context.user){
+            return await Email.find( { recipient: context.user._id } ).populate('sender')
+            }
+        }
     },
     Mutation : {
         addemail : async (parent, {senderemail, recipientemail, subject, emailbody}) => {

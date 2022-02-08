@@ -15,9 +15,9 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Editor } from "react-draft-wysiwyg";
-import { EditorState } from "draft-js";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import MUIRichTextEditor from 'mui-rte'
+import { convertToRaw } from 'draft-js'
+
 
 const theme = createTheme({
     palette: {
@@ -42,14 +42,12 @@ const theme = createTheme({
     },
   });
 
-export default function Email() {
-    const [editorState, setEditorState] = useState(() =>
-        EditorState.createEmpty()
-    )
+  const save = (data) => {
+    console.log(data);
+  };
 
-    useEffect(() => {
-        console.log(editorState);
-      }, [editorState]);
+export default function Email() {
+
   return (
     <ThemeProvider theme={theme}>
     <Card sx={{ maxWidth: 1, marginTop: "50px", boxShadow: 5, borderRadius: '16px', padding: '16px' }}>
@@ -72,10 +70,10 @@ export default function Email() {
                 autoFocus
                 />
       <CardContent>
-      <Editor
-          editorState={editorState}
-          onEditorStateChange={setEditorState}
-          toolbarOnFocus
+        <MUIRichTextEditor
+        label="Type something here..."
+        onSave={save}
+        inlineToolbar={true}
         />
       </CardContent>
       <CardActions>
