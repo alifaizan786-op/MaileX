@@ -7,7 +7,7 @@ import '../components/rightsidebar/rightsidebar.css'
 import { Grid } from '@mui/material';
 import Email from '../components/email/email'
 
-import { QUERY_INBOX } from '../utils/queries'
+import { QUERY_INBOX, QUERY_PROFILE } from '../utils/queries'
 import { useQuery } from '@apollo/client';
 
 import Auth from '../utils/auth';
@@ -30,7 +30,10 @@ function Home() {
 
   const inbox = data?.inbox || [];
 
-  console.log(inbox);
+  const { profdata } = useQuery(QUERY_PROFILE)
+
+
+  console.log(profdata);
 
   return (
     <div>

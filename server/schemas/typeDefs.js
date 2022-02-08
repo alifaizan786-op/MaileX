@@ -27,6 +27,7 @@ const typeDefs = gql`
         users : [User]
         emails : [Email]
         inbox : [Email]
+        profile (userid: ID): User
     }
 
     type Mutation {

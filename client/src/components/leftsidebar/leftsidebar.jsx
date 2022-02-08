@@ -13,6 +13,10 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Avatar } from "@mui/material";
+import { useQuery } from '@apollo/client';
+import { QUERY_PROFILE } from '../../utils/queries'
+
+import Auth from '../../utils/auth';
 
 const useStyles = makeStyles((theme) => ({
   sidebarPadding: {
@@ -91,10 +95,28 @@ const closedMixin = (theme) => ({
 
 function Leftsidebar(props) {
   const [selectedIndex, setSelectedIndex] = React.useState(1);
+
   const classes = useStyles();
+
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
   };
+
+  const { data } = useQuery(QUERY_PROFILE)
+
+  const user = data?.profile || []
+
+  const firstname = user.firstName || ' '
+  const lastname = user.lastName || ' '
+  const initial = `${firstname[0]}${lastname[0]}`
+
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
+
+
+
   return (
     <ThemeProvider theme={theme}>
       <Drawer variant="permanent" open={props.current} className={classes.root}>
@@ -117,7 +139,7 @@ function Leftsidebar(props) {
             </ListItemIcon>
             <ListItemText primary="Sent Mail" />
           </ListItemButton>
-          <ListItemButton
+          {/* <ListItemButton
             selected={selectedIndex === 2}
             onClick={(event) => handleListItemClick(event, 2)}
           >
@@ -125,30 +147,27 @@ function Leftsidebar(props) {
               <Drafts />
             </ListItemIcon>
             <ListItemText primary="Drafts" />
-          </ListItemButton>
+          </ListItemButton> */}
         </List>
 
         <List>
-          <ListItemButton>
+          {/* <ListItemButton>
             <ListItemIcon>
               <Settings />
             </ListItemIcon>
             <ListItemText primary="Setting" />
-          </ListItemButton>
+          </ListItemButton> */}
           <ListItemButton>
             <ListItemIcon>
               <Logout />
             </ListItemIcon>
-            <ListItemText primary="Logout" />
+            <ListItemText primary="Logout" onClick={logout} />
           </ListItemButton>
           <ListItemButton>
             <ListItemIcon>
-              <Avatar
-                alt="user img"
-                src="https://raw.githubusercontent.com/alifaizan786-op/Full_Stack_Portfolio/main/assets/images/placeholder.png"
-              />
+            <Avatar sx={{ bgcolor: teal[500] }}>{initial}</Avatar>
             </ListItemIcon>
-            <ListItemText primary="Farid Virani" />
+            <ListItemText primary={`${firstname} ${lastname}`} />
           </ListItemButton>
         </List>
       </Drawer>

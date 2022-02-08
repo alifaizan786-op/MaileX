@@ -12,5 +12,17 @@ export const QUERY_INBOX = gql`
     emailbody
     sentDate
   }
-}
+  }
 `;
+
+export const QUERY_PROFILE = gql `
+  query profile {
+    profile {
+      _id
+      firstName
+      lastName
+      email
+      password
+    }
+  }
+`

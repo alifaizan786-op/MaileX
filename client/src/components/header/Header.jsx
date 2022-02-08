@@ -90,9 +90,6 @@ const useStyles = makeStyles((theme) => ({
 function Header(props) {
   const [open,setOpen]=useState(false);
   const classes = useStyles({open});
-  console.log(props.current)
-
-  console.log(props.current)
 
   return (
     <AppBar position='fixed' className={classes.appbar}> 

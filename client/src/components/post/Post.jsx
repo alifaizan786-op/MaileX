@@ -14,12 +14,11 @@ import {  Reply, Forward, Delete } from "@mui/icons-material";
 
 
 export default function Post(props) {
-  console.log(`${props.senderfname} ${props.senderlname} <${props.senderemail}> ${props.sentDate}`);
   return (
     <Card sx={{ maxWidth: 1, marginTop: "50px", boxShadow: 5, borderRadius: '16px' }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: teal[500] }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: teal[500] }}>
             {`${props.senderfname[0]}${props.senderlname[0]}`}
           </Avatar>
         }

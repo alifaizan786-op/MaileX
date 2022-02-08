@@ -14,6 +14,14 @@ const resolvers = {
             if (context.user){
             return await Email.find( { recipient: context.user._id } ).populate('sender')
             }
+        },
+        // profile : async (parent, {userid}, context) => {
+        //     return await User.findOne( { _id : userid} ).populate('sender')
+        // },
+        profile : async (parent, args, context) => {
+            if (context.user){
+            return await User.findOne( { _id : context.user._id} )
+            }
         }
     },
     Mutation : {
