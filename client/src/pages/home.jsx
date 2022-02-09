@@ -30,10 +30,6 @@ function Home() {
 
   const inbox = data?.inbox || [];
 
-  const { profdata } = useQuery(QUERY_PROFILE)
-
-
-  console.log(profdata);
 
   return (
     <div>

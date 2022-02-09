@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import '../src/app.css'
 import LoginSignup from './pages/auth';
 import Home from './pages/home';
 import {
@@ -38,23 +39,18 @@ const client = new ApolloClient({
 
 
 function App() {
+
   return (
-    <ApolloProvider client={client}>
-      {Auth.loggedIn() ? (
-        <Home />
-      ):(
-        <LoginSignup />
-      )}
-    </ApolloProvider>
+    <div>
+      <ApolloProvider client={client}>
+        {Auth.loggedIn() ? (
+          <Home />
+        ):(
+          <LoginSignup />
+        )}
+      </ApolloProvider>
+    </div>
   );
 }
 
 export default App;
-{/* <Router>
-        <Route path="/auth">
-          <LoginSignup />
-        </Route>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-</Router> */}

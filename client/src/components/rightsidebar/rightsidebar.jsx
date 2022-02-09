@@ -11,6 +11,10 @@ import SpeedDialAction from '@mui/material/SpeedDialAction';
 import MenuIcon from '@mui/icons-material/Menu';
 import PeopleIcon from '@mui/icons-material/People';
 
+import { QUERY_INBOX, QUERY_PROFILE } from '../../utils/queries'
+import { useQuery } from '@apollo/client';
+
+import Auth from '../../utils/auth';
 
 
 const theme = createTheme({
@@ -44,10 +48,27 @@ var getInitials = function (string) {
 
 
 function Rightsidebar() {
-  let contacts = ['Michael Scott', 'Jim Halpert', 'Pam Beesly', 'Stanley Hudson', 'Dwight Shrute', 'Merideth Palmer', 'Toby Flenderson', 'Angela Martin', 'Kevin Malone', 'Oscar Martinez', 'Robert California', 'Jan Levinson', 'Karen Fillippelli', 'Andy Bernard', 'Deangelo Viker', 'Jo Bennette']
+  
+  let allcontacts = []
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  
+
+  const { loading, data } = useQuery(QUERY_INBOX)
+
+  const contact = data?.inbox || [];
+
+
+
+  if (contact.length > 0) {
+    for(let i = 0; i < contact.length; i++){
+      allcontacts.push(`${contact[i].sender.firstName} ${contact[i].sender.lastName}`)
+    }
+  }
+  
+  let contacts = [...new Set(allcontacts)];
+
 
   return (
     <ThemeProvider theme={theme}>
