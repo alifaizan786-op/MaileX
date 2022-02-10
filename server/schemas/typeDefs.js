@@ -31,7 +31,7 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addemail(senderemail: String!, recipientemail: String!, subject: String , emailbody: String!): Email
+        addemail( recipientemail: String!, subject: String , emailbody: String!): Email
         addUser(firstName: String!, lastName: String!, email: String!, password: String! ): Auth
         login(email: String!, password: String!): Auth
     }

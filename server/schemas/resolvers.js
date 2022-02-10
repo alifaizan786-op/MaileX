@@ -25,14 +25,12 @@ const resolvers = {
         }
     },
     Mutation : {
-        addemail : async (parent, {senderemail, recipientemail, subject, emailbody}) => {
-            ({_id : this._Ssender} = await User.findOne({ email: senderemail }));
-            const sender = this._Ssender;
+        addemail : async (parent, {recipientemail, subject, emailbody}, context) => {
 
             ({_id : this._Rrecipient} = await User.findOne({ email: recipientemail }));
             const recipient = this._Rrecipient;
 
-            const newemail = await Email.create({ sender, recipient, subject, emailbody});
+            const newemail = await Email.create({ sender: context.user._id, recipient, subject, emailbody});
 
             return newemail
         },

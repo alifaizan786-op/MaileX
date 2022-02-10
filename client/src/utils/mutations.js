@@ -23,3 +23,11 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_EMAIL = gql`
+  mutation createEmail ( $recipientemail: String! ,$subject: String!, $emailbody: String!) {
+  addemail(recipientemail: $recipientemail ,subject: $subject, emailbody: $emailbody) {
+    emailbody
+  }
+}
+`;

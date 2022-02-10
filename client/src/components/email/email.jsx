@@ -1,23 +1,18 @@
 import {React, useState, useEffect} from "react";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { teal, grey } from "@mui/material/colors";
 import {  Reply, Forward, Delete } from "@mui/icons-material";
 import InputAdornment from '@mui/material/InputAdornment';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import MUIRichTextEditor from 'mui-rte'
-import { convertToRaw } from 'draft-js'
+import TextField from '@mui/material/TextField';
 
+import { useMutation } from '@apollo/client';
+import { ADD_EMAIL } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 const theme = createTheme({
     palette: {
@@ -42,42 +37,86 @@ const theme = createTheme({
     },
   });
 
-  const save = (data) => {
-    console.log(data);
-  };
+
 
 export default function Email() {
+  const [formState, setFormState] = useState({
+    recipientemail:'',
+    subject:'',
+    emailbody:''
+  })
+  
+  const [addEmail, { error, data }] = useMutation(ADD_EMAIL);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+
+    try {
+      const { data } = await addEmail({
+        variables: { ...formState },
+      });
+
+    } catch (e) {
+      console.error(e);
+    }
+
+    setFormState({
+      recipientemail: '',
+      subject: '',
+      emailbody: '',
+    });
+  };
+
 
   return (
     <ThemeProvider theme={theme}>
     <Card sx={{ maxWidth: 1, marginTop: "50px", boxShadow: 5, borderRadius: '16px', padding: '16px' }}>
         <OutlinedInput
+                sx={{ mt: 1}}
                 startAdornment={<InputAdornment position="start">To:</InputAdornment>}
                 margin="normal"
                 required
                 fullWidth
                 id="recipient"
-                name="recipient"
+                name="recipientemail"
+                onChange={handleChange}
+                value={formState.recipientemail}
                 autoFocus
                 />
         <OutlinedInput
+                sx={{ mt: 1}}
                 startAdornment={<InputAdornment position="start">Subject:</InputAdornment>}
                 margin="normal"
                 required
                 fullWidth
                 id="subject"
                 name="subject"
+                onChange={handleChange}
+                value={formState.subject}
                 autoFocus
                 />
-      <CardContent>
-        <MUIRichTextEditor
-        label="Type something here..."
-        onSave={save}
-        inlineToolbar={true}
+      <TextField
+          sx={{ mt: 1}}
+          label="Email Body"
+          name='emailbody'
+          multiline
+          fullWidth
+          onChange={handleChange}
+          value={formState.emailbody}
+          rows={4}
         />
-      </CardContent>
       <CardActions>
-        <Button >
+        <Button onClick={handleFormSubmit}>
           <Forward />
           Send
         </Button>

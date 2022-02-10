@@ -39,7 +39,7 @@ function Home() {
        <Leftsidebar open={handleDrawerOpen} close={handleDrawerClose} current={draweropen}/>
      </Grid>
      <Grid item sm={7} xs={10} marginTop={"30px"} marginBottom={"30px"}>
-        {/* <Email/> */}
+        <Email/>
        {inbox.map((emailobj, index) => (
          <Post 
          senderfname={emailobj.sender.firstName} 
