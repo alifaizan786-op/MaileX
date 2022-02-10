@@ -12,12 +12,14 @@ const resolvers = {
         },
         inbox : async (parent, args, context) => {
             if (context.user){
-            return await Email.find( { recipient: context.user._id } ).populate('sender')
+            return await Email.find( { recipient: context.user._id } ).populate('sender').sort({ sentDate: -1 });
             }
         },
-        // profile : async (parent, {userid}, context) => {
-        //     return await User.findOne( { _id : userid} ).populate('sender')
-        // },
+        sentbox : async (parent, args, context) => {
+            if (context.user){
+            return await Email.find( { sender: context.user._id } ).populate('recipient').sort({ sentDate: -1 });
+            }
+        },
         profile : async (parent, args, context) => {
             if (context.user){
             return await User.findOne( { _id : context.user._id} )

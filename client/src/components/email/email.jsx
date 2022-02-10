@@ -91,7 +91,6 @@ export default function Email() {
                 name="recipientemail"
                 onChange={handleChange}
                 value={formState.recipientemail}
-                autoFocus
                 />
         <OutlinedInput
                 sx={{ mt: 1}}
@@ -103,7 +102,6 @@ export default function Email() {
                 name="subject"
                 onChange={handleChange}
                 value={formState.subject}
-                autoFocus
                 />
       <TextField
           sx={{ mt: 1}}

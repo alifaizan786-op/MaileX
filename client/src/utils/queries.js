@@ -15,6 +15,21 @@ export const QUERY_INBOX = gql`
   }
 `;
 
+export const QUERY_SENTBOX = gql`
+  query sentbox {
+  sentbox {
+    recipient{
+      firstName
+      lastName
+      email
+    }
+    subject
+    emailbody
+    sentDate
+  }
+  }
+`;
+
 export const QUERY_PROFILE = gql `
   query profile {
     profile {

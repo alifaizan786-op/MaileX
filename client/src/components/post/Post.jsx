@@ -14,12 +14,15 @@ import {  Reply, Forward, Delete } from "@mui/icons-material";
 
 
 export default function Post(props) {
+
+  const fname = props.senderfname || ' '
+  const lname = props.senderlname || ' '
   return (
     <Card sx={{ maxWidth: 1, marginTop: "50px", boxShadow: 5, borderRadius: '16px' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: teal[500] }}>
-            {`${props.senderfname[0]}${props.senderlname[0]}`}
+            {`${fname[0]}${lname[0]}`}
           </Avatar>
         }
         action={

@@ -114,7 +114,7 @@ function Leftsidebar(props) {
     event.preventDefault();
     Auth.logout();
   };
-
+  
 
 
   return (
@@ -122,41 +122,28 @@ function Leftsidebar(props) {
       <Drawer variant="permanent" open={props.current} className={classes.root}>
         <List className={classes.sidebarPadding}>
           <ListItemButton
-            selected={selectedIndex === 0}
-            onClick={(event) => handleListItemClick(event, 0)}
+            selected={selectedIndex === 1}
+            onClick={props.inbox}
           >
             <ListItemIcon>
               <InboxIcon />
             </ListItemIcon>
             <ListItemText primary="Inbox" />
           </ListItemButton>
+          
           <ListItemButton
-            selected={selectedIndex === 1}
-            onClick={(event) => handleListItemClick(event, 1)}
+            selected={selectedIndex === 0}
+            onClick={props.sentbox}
           >
             <ListItemIcon>
               <Send />
             </ListItemIcon>
             <ListItemText primary="Sent Mail" />
           </ListItemButton>
-          {/* <ListItemButton
-            selected={selectedIndex === 2}
-            onClick={(event) => handleListItemClick(event, 2)}
-          >
-            <ListItemIcon>
-              <Drafts />
-            </ListItemIcon>
-            <ListItemText primary="Drafts" />
-          </ListItemButton> */}
         </List>
 
         <List>
-          {/* <ListItemButton>
-            <ListItemIcon>
-              <Settings />
-            </ListItemIcon>
-            <ListItemText primary="Setting" />
-          </ListItemButton> */}
+
           <ListItemButton>
             <ListItemIcon>
               <Logout />
@@ -176,3 +163,6 @@ function Leftsidebar(props) {
 }
 
 export default Leftsidebar;
+
+
+//(event) => {handleListItemClick(event, 1)}

@@ -27,6 +27,7 @@ const typeDefs = gql`
         users : [User]
         emails : [Email]
         inbox : [Email]
+        sentbox : [Email]
         profile (userid: ID): User
     }
 
