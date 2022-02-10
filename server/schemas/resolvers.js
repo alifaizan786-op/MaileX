@@ -24,6 +24,12 @@ const resolvers = {
             if (context.user){
             return await User.findOne( { _id : context.user._id} )
             }
+        },
+        sent : async (parent, {recipientid}, context) =>{
+            return await Email.find({sender:context.user._id,recipient:recipientid}).populate('sender').populate('recipient').sort({ sentDate: -1 })
+        },
+        recieved : async (parent, {senderid}, context) =>{
+            return await Email.find({sender:senderid,recipient:context.user._id}).populate('sender').populate('recipient').sort({ sentDate: -1 })
         }
     },
     Mutation : {
@@ -62,4 +68,8 @@ const resolvers = {
 };
 
 module.exports = resolvers
+
+// id's for faizan and jim are provided
+// find where faizan is recipietn and sender is jim
+// find where jim is recipient and sender is faizan
 

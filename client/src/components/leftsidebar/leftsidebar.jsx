@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiPaper-root": {
       display: "flex",
+      backgroundColor:'rgba(255,255,255,0.7)',
       justifyContent: "space-between",
     },
   },
@@ -60,6 +61,7 @@ const Drawer = styled(MuiDrawer, {
 })(({ theme, open }) => ({
   width: drawerWidth,
   flexShrink: 0,
+  
   whiteSpace: "nowrap",
   boxSizing: "border-box",
   ...(open && {
@@ -119,7 +121,7 @@ function Leftsidebar(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Drawer variant="permanent" open={props.current} className={classes.root}>
+      <Drawer variant="permanent" open={props.current} className={classes.root} >
         <List className={classes.sidebarPadding}>
           <ListItemButton
             selected={selectedIndex === 1}

@@ -18,7 +18,7 @@ export default function Post(props) {
   const fname = props.senderfname || ' '
   const lname = props.senderlname || ' '
   return (
-    <Card sx={{ maxWidth: 1, marginTop: "50px", boxShadow: 5, borderRadius: '16px' }}>
+    <Card sx={{ maxWidth: 1, marginTop: "50px", boxShadow: 5, borderRadius: '16px',backgroundColor:'rgba(255,255,255,0.97)' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: teal[500] }}>
