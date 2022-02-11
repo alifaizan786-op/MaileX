@@ -1,12 +1,19 @@
+//From React
 import React from 'react';
+
+//From Components
 import Header from '../components/header/Header';
 import Leftsidebar from '../components/leftsidebar/leftsidebar';
 import Rightsidebar from '../components/rightsidebar/rightsidebar';
-import '../components/rightsidebar/rightsidebar.css'
-import { Grid } from '@mui/material';
 import Inbox from '../components/inbox/inbox';
 import Sentbox from '../components/sentbox/sentbox';
 import Chat from '../components/chat/chat';
+import '../components/rightsidebar/rightsidebar.css';
+
+//From Material UI
+import { Grid } from '@mui/material';
+
+//From React Router Dom
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
@@ -53,7 +60,6 @@ function Home() {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundAttachment: 'fixed',
-      height: '100vh',
     }}>
         <Grid container>
         <Header open={handleDrawerOpen} close={handleDrawerClose} current={draweropen}/>

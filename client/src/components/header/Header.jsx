@@ -93,7 +93,6 @@ function Header(props) {
 
   return (
     <AppBar position='fixed' className={classes.appbar}> 
-      
       <Grid container spacing={3}>
         <Grid item xs={2} sm={3} md={3}>
             {props.current ? 

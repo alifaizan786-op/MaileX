@@ -1,12 +1,11 @@
 import Post from '../post/Post'
-import Email from '../email/email'
 
-import { QUERY_SENTBOX, QUERY_PROFILE } from '../../utils/queries'
+import {QUERY_SENTBOX} from '../../utils/queries'
 import { useQuery } from '@apollo/client';
 
 function Sentbox(){
 
-    const { loading, data } = useQuery(QUERY_SENTBOX)
+    const data = useQuery(QUERY_SENTBOX)
     const sentbox = data?.sentbox || [];
 
     return (

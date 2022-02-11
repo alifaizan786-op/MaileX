@@ -1,6 +1,6 @@
 import Post from '../post/Post'
 import Email from '../email/email'
-import { Redirect, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { QUERY_CHAT } from '../../utils/queries'
 import { useQuery } from '@apollo/client'
 

@@ -1,17 +1,17 @@
+//From React
 import {React, useState} from "react";
-import "../rightsidebar/rightsidebar.css";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
+import "./login.css";
+
+//From Material UI
+import {Avatar, Button, Typography, Container, CssBaseline, Box, TextField} from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { teal } from "@mui/material/colors";
-import Typography from "@mui/material/Typography";
-import "./login.css";
-import Container from "@mui/material/Container";
-import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+
+//From Apollo
 import { useMutation } from '@apollo/client';
+
+//From Utils
 import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
@@ -31,7 +31,7 @@ function Login(props) {
     email: '', 
     password: '' 
   });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const login = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

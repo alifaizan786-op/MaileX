@@ -11,6 +11,8 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Auth from './utils/auth';
+import About from './pages/about';
+
 
 
 // Construct our main GraphQL API endpoint
@@ -41,15 +43,20 @@ const client = new ApolloClient({
 function App() {
 
   return (
-    <div>
-      <ApolloProvider client={client}>
-        {Auth.loggedIn() ? (
-          <Home />
-        ):(
-          <LoginSignup />
-        )}
-      </ApolloProvider>
-    </div>
+    <Router>
+      <Route exact path="/">
+        <ApolloProvider client={client}>
+          {Auth.loggedIn() ? (
+            <Home />
+          ):(
+            <LoginSignup />
+          )}
+        </ApolloProvider>
+      </Route>
+      <Route exact path="/About">
+        <About/>
+      </Route>
+    </Router>
   );
 }
 

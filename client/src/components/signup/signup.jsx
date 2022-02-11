@@ -1,21 +1,16 @@
+//From React
 import {React, useState} from 'react'
-import '../rightsidebar/rightsidebar.css'
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button'
+
+//From Material UI
 import { createTheme, ThemeProvider} from '@mui/material/styles';
 import {  teal } from '@mui/material/colors';
-import Typography from '@mui/material/Typography';
-import './signup.css'
-import FormHelperText from "@mui/material/FormHelperText";
-import Container from '@mui/material/Container';
-import CssBaseline from '@mui/material/CssBaseline';
-import InputAdornment from '@mui/material/InputAdornment';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import OutlinedInput from "@mui/material/OutlinedInput";
+import {Avatar, Button, Typography, FormHelperText, Container, CssBaseline, InputAdornment, Box, TextField, OutlinedInput} from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
+//From Apollo
 import { useMutation } from '@apollo/client';
+
+//From Utils
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
@@ -40,7 +35,7 @@ function Signup (props) {
     email: '',
     password: '',
   });
-  const [addUser, { error, data }] = useMutation(ADD_USER);
+  const addUser = useMutation(ADD_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

@@ -1,21 +1,19 @@
 import React from 'react';
 import '../rightsidebar/rightsidebar.css'
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {  teal } from '@mui/material/colors';
-import { useMediaQuery } from '@mui/material';
 import Backdrop from '@mui/material/Backdrop';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
-import MenuIcon from '@mui/icons-material/Menu';
 import PeopleIcon from '@mui/icons-material/People';
 
-import { QUERY_INBOX, QUERY_PROFILE } from '../../utils/queries'
+import { QUERY_INBOX } from '../../utils/queries'
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import Auth from '../../utils/auth';
 
 
 const theme = createTheme({

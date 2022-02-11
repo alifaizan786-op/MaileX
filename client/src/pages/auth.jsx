@@ -1,21 +1,13 @@
+//From React
 import * as React from 'react'
-import { createTheme, ThemeProvider} from '@mui/material/styles';
-import {  teal } from '@mui/material/colors';
+
+//From Components
 import ParticlesBackground from '../components/ParticlesBackground/ParticlesBackground';
 import Login from '../components/login/login';
 import Signup from '../components/signup/signup'
 
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: teal[500],
-    },
-    secondary: {
-      main: '#f44336',
-    },
-  },
-});
+
 
 function LoginSignup() {  
   const [haveacc, sethaveacc] = React.useState(true);

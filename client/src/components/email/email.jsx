@@ -1,18 +1,13 @@
-import {React, useState, useEffect} from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Button from "@mui/material/Button";
-import { teal, grey } from "@mui/material/colors";
-import {  Reply, Forward, Delete } from "@mui/icons-material";
-import InputAdornment from '@mui/material/InputAdornment';
-import OutlinedInput from "@mui/material/OutlinedInput";
+import { React, useState } from "react";
+import { teal } from "@mui/material/colors";
+import { Forward } from "@mui/icons-material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import TextField from '@mui/material/TextField';
+import { TextField, OutlinedInput, InputAdornment, Button, CardActions, Card } from '@mui/material';
+
 
 import { useMutation } from '@apollo/client';
 import { ADD_EMAIL } from '../../utils/mutations';
-import Auth from '../../utils/auth';
+
 
 const theme = createTheme({
     palette: {
@@ -46,7 +41,7 @@ export default function Email() {
     emailbody:''
   })
   
-  const [addEmail, { error, data }] = useMutation(ADD_EMAIL);
+  const addEmail = useMutation(ADD_EMAIL);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
