@@ -30,7 +30,7 @@ const resolvers = {
         },
         recieved : async (parent, {senderid}, context) =>{
             return await Email.find({sender:senderid,recipient:context.user._id}).populate('sender').populate('recipient').sort({ sentDate: -1 })
-        }
+        },
     },
     Mutation : {
         addemail : async (parent, {recipientemail, subject, emailbody}, context) => {
@@ -63,7 +63,9 @@ const resolvers = {
             const token = signToken(user);
       
             return { token, user };
-        }
+        },
+        
+
     }
 };
 

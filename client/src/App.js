@@ -12,6 +12,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import Auth from './utils/auth';
 import About from './pages/about';
+import { teal } from "@mui/material/colors";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 
 
@@ -39,24 +41,48 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: teal[500],
+    },
+    secondary: {
+      main: "#f44336",
+    },
+  },
+  breakpoints: {
+    values: {
+      sm: 640,
+      md: 1007,
+      lg: 1280,
+      xl: 1536,
+    },
+  },
+  drawer: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+});
 
 function App() {
 
   return (
-    <Router>
-      <Route exact path="/">
-        <ApolloProvider client={client}>
-          {Auth.loggedIn() ? (
-            <Home />
-          ):(
-            <LoginSignup />
-          )}
-        </ApolloProvider>
-      </Route>
-      <Route exact path="/About">
-        <About/>
-      </Route>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Route exact path="/">
+          <ApolloProvider client={client}>
+            {Auth.loggedIn() ? (
+              <Home />
+            ):(
+              <LoginSignup />
+            )}
+          </ApolloProvider>
+        </Route>
+        <Route exact path="/About">
+          <About/>
+        </Route>
+      </Router>
+    </ThemeProvider>
   );
 }
 

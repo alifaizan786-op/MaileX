@@ -31,7 +31,7 @@ function Login(props) {
     email: '', 
     password: '' 
   });
-  const login = useMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

@@ -31,6 +31,7 @@ const typeDefs = gql`
         profile (userid: ID): User
         sent (recipientid:ID): [Email]
         recieved (senderid:ID): [Email]
+        deletefrminbox (emailId : ID) : Email
     }
 
     type Mutation {

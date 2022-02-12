@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/MaileX/static/css/main.8939c4d5.css",
-    "main.js": "/MaileX/static/js/main.1aae324c.js",
+    "main.js": "/MaileX/static/js/main.53c7f3c1.js",
     "index.html": "/MaileX/index.html",
     "main.8939c4d5.css.map": "/MaileX/static/css/main.8939c4d5.css.map",
-    "main.1aae324c.js.map": "/MaileX/static/js/main.1aae324c.js.map"
+    "main.53c7f3c1.js.map": "/MaileX/static/js/main.53c7f3c1.js.map"
   },
   "entrypoints": [
     "static/css/main.8939c4d5.css",
-    "static/js/main.1aae324c.js"
+    "static/js/main.53c7f3c1.js"
   ]
 }
