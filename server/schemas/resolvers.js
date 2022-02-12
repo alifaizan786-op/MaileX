@@ -27,7 +27,7 @@ const resolvers = {
         },
         sent : async (parent, {otherperson}, context) =>{
             console.log(otherperson);
-            console.log(context.user._id);
+            console.log(context.user.id);
             return await Email.find({sender:context.user._id, recipient:otherperson}).populate('sender').populate('recipient').sort({ sentDate: -1 })
         },
         recieved : async (parent, {otherperson}, context) =>{
@@ -66,8 +66,6 @@ const resolvers = {
       
             return { token, user };
         },
-        
-
     }
 };
 

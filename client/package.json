@@ -1,6 +1,6 @@
 {
   "name": "mailex",
-  "homepage": "https://aqueous-temple-81282.herokuapp.com/",
+  "homepage": "https://aqueous-temple-81282.herokuapp.com",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
