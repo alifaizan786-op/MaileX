@@ -83,7 +83,6 @@ function Rightsidebar() {
     contactss.push(uniqueobj[i])
   }
 
-  console.log(contactss);
   
 
 

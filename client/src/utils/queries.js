@@ -44,8 +44,8 @@ export const QUERY_PROFILE = gql `
 `;
 
 export const QUERY_CHAT = gql `
-  query chat {
-  sent(senderid:"61fee5e40959931fcc0b3039", recipientid:"61fee5e40959931fcc0b303a"){
+  query chat($otherperson:ID) {
+  sent(otherperson:$otherperson){
     sender{
       firstName
       lastName
@@ -56,8 +56,8 @@ export const QUERY_CHAT = gql `
     subject
     
   }
-  recieved(senderid:"61fee5e40959931fcc0b303a", recipientid:"61fee5e40959931fcc0b3039"){
-    recipient{
+  recieved(otherperson:$otherperson){
+    sender{
       firstName
       lastName
       email

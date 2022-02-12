@@ -70,7 +70,7 @@ function Home() {
           <Route exact path="/">
             {checkbox()}
           </Route>
-          <Route exact path="/:id">
+          <Route path="/:id">
             <Chat/>
           </Route>
         </Grid>

@@ -11,9 +11,27 @@ function Chat(){
     const recipientid = chatid
 
     const { loading, data } = useQuery(QUERY_CHAT, {
-        variables: { senderid:chatid, recipientid:chatid },
+        variables: { otherperson:chatid},
       });
-    console.log(data);
+
+    const sentraw = data?.sent || []
+    const recievedraw = data?.recieved || []   
+
+    let chat = []
+
+    if(sentraw){
+        for (let i = 0; i < sentraw.length; i++){
+            chat.push(sentraw[i])
+        }
+    }
+
+    if(recievedraw){
+        for (let i = 0; i < recievedraw.length; i++){
+            chat.push(recievedraw[i])
+        }
+    }
+
+    console.log(chat);
     return (
         <div>
             {/* <Email/>

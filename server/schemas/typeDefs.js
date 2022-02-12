@@ -29,8 +29,8 @@ const typeDefs = gql`
         inbox : [Email]
         sentbox : [Email]
         profile (userid: ID): User
-        sent (recipientid:ID): [Email]
-        recieved (senderid:ID): [Email]
+        sent (otherperson:ID): [Email]
+        recieved (otherperson:ID): [Email]
         deletefrminbox (emailId : ID) : Email
     }
 
