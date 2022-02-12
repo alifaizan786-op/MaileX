@@ -68,7 +68,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Router>
+      <Router basename='/MaileX'>
         <Route exact path="/">
           <ApolloProvider client={client}>
             {Auth.loggedIn() ? (
