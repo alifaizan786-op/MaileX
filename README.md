@@ -4,6 +4,8 @@
 # Code_Quiz
 ![GitHub](https://img.shields.io/github/license/alifaizan786-op/MaileX?style=plastic)
 ![Lines of code](https://img.shields.io/tokei/lines/github/alifaizan786-op/MaileX?style=plastic)
+![Open Issues](https://img.shields.io/github/issues/alifaizan786-op/MaileX)
+
 
 Live Link: [Heroku](https://aqueous-temple-81282.herokuapp.com/)
 
