@@ -4,17 +4,19 @@
 # Code_Quiz
 ![GitHub](https://img.shields.io/github/license/alifaizan786-op/MaileX?style=plastic)
 ![Lines of code](https://img.shields.io/tokei/lines/github/alifaizan786-op/MaileX?style=plastic)
+![Open Issues](https://img.shields.io/github/issues/alifaizan786-op/MaileX)
+
 
 Live Link: [Heroku](https://aqueous-temple-81282.herokuapp.com/)
 
 Repo Link: [Github](https://github.com/alifaizan786-op/MaileX)
 
-![MaileX](readme assest\MaileX.png)
+![MaileX](https://raw.githubusercontent.com/alifaizan786-op/MaileX/main/readme%20assest/MaileX.png)
 
 
 ## Table of Contents
 - [About](#about)
-- [User Story](#userstory)
+- [User Story](#user_story)
 - [Technologies](#technologies)
 - [Credits](#credits)
 
@@ -30,7 +32,7 @@ And it is also phsycologically proven that scrolling model, have the least bounc
 
 Now imagine you wake up in the morning and check your email, but rather than clicking and open each of them. What is you had all you email in a scrollable feed with each email shown as a post.
 
-## User Story
+## User_Story
 - As a person entering the work industry
 - I want to be able to view my emails all together
 - So that I am following the industry standard 
@@ -50,3 +52,7 @@ Now imagine you wake up in the morning and check your email, but rather than cli
 
 ## Features
 - Send & Recieve Emails
+
+## Questions
+Github UN: alifaizan786-op - [alifaizan786-op](https://github.com/alifaizan786-op)
+You can contact me via email by emailing faizan.ali@irunadigital.com with your questions
