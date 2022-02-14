@@ -3,6 +3,7 @@ import { gql } from '@apollo/client';
 export const QUERY_INBOX = gql`
   query inbox {
   inbox {
+    _id
     sender{
       _id
       firstName

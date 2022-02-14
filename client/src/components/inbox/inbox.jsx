@@ -9,18 +9,20 @@ function Inbox(){
 
     const { loading, data } = useQuery(QUERY_INBOX)
     const inbox = data?.inbox || [];
+
+    
     return (
         <div>
             <Email/>
             {inbox.map((emailobj, index) => (
-                <Post 
+                <Post
                 senderfname={emailobj.sender.firstName} 
                 senderlname={emailobj.sender.lastName} 
                 senderemail={emailobj.sender.email}
                 subject={emailobj.subject}
                 emailbody={emailobj.emailbody}
                 sentDate={emailobj.sentDate}  
-                key={index}/>
+                key={emailobj._id}/>
                 ))}
                 {inbox.map((emailobj, index) => (
                 <Post 

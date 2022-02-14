@@ -34,8 +34,8 @@ function Chat(){
     console.log(chat);
     return (
         <div>
-            {/* <Email/>
-            {inbox.map((emailobj, index) => (
+            <Email/>
+            {chat.map((emailobj, index) => (
                 <Post 
                 senderfname={emailobj.sender.firstName} 
                 senderlname={emailobj.sender.lastName} 
@@ -44,7 +44,7 @@ function Chat(){
                 emailbody={emailobj.emailbody}
                 sentDate={emailobj.sentDate}  
                 key={index}/>
-                ))} */}
+                ))}
         </div>
     )
 }
