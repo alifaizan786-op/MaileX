@@ -8,6 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Grid from '@mui/material/Grid';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   appbar:{
@@ -107,10 +108,10 @@ function Header(props) {
         </Grid>
         <Grid item xs={4}  sm={6} md={6} className={classes.logo}>
           <Typography variant='h4' className={classes.logoLg}>
-              <a href="#">Mail-eX</a>
+              <a href="/">Mail-eX</a>
           </Typography>
           <Typography variant='h5'className={classes.logoSm}>
-              <a href="#">Mail-eX</a>
+              <a href="/">Mail-eX</a>
           </Typography>
         </Grid>
         <Grid item xs={5.9} sm={3} md={3} >

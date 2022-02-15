@@ -62,7 +62,6 @@ function Signup (props) {
   };
 
   return (
-    <ThemeProvider theme={theme}>
     <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -159,7 +158,6 @@ function Signup (props) {
           </Box>
         </Box>
       </Container>
-      </ThemeProvider>
   )
 }
 

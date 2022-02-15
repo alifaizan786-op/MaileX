@@ -6,16 +6,28 @@ import {Card, CardHeader, CardContent, CardActions, Avatar, IconButton, Button, 
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { teal, grey } from "@mui/material/colors";
 import {  Reply, Forward, Delete } from "@mui/icons-material";
-
+import { Link } from 'react-router-dom';
 
 
 export default function Post(props) {
 
   const fname = props.senderfname || ' '
   const lname = props.senderlname || ' '
+
   function forward(){
-    
+    let emailforward = `
+    ---------- Forwarded message ---------
+      from : ${props.senderfname} ${props.senderlname} <${props.senderemail}>,
+      date : ${props.sentDate},
+      subject : ${props.subject},
+      to : ${props.recipientfname} ${props.recipientlname} <${props.recipientemail}>,
+
+
+      ${props.emailbody}
+    `
+    return emailforward
   }
+
   return (
     <Card sx={{ maxWidth: 1, marginTop: "50px", boxShadow: 5, borderRadius: '16px',backgroundColor:'rgba(255,255,255,0.97)' }}>
       <CardHeader
@@ -39,14 +51,19 @@ export default function Post(props) {
         </Typography>
       </CardContent>
       <CardActions sx={{ display: "flex", justifyContent: "space-around" }}>
+
+      <Link  to={props.senderid}>
         <Button sx={{ color: grey[500] }}>
           <Reply  />
           Reply
         </Button>
-        <Button sx={{ color: grey[500] }}>
+        </Link>
+
+        <Button sx={{ color: grey[500] }} onClick={() => {props.forwardobj(forward());}}>
           <Forward />
           Forward
         </Button>
+        
         <Button sx={{ color: grey[500] }}>
           <Delete />
           Delete

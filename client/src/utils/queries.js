@@ -14,6 +14,13 @@ export const QUERY_INBOX = gql`
     emailbody
     sentDate
   }
+  profile {
+    _id
+    firstName
+    lastName
+    email
+    password
+  }
   }
 `;
 
@@ -48,6 +55,7 @@ export const QUERY_CHAT = gql `
   query chat($otherperson:ID) {
   sent(otherperson:$otherperson){
     sender{
+      _id
       firstName
       lastName
       email
@@ -59,6 +67,7 @@ export const QUERY_CHAT = gql `
   }
   recieved(otherperson:$otherperson){
     sender{
+      _id
       firstName
       lastName
       email

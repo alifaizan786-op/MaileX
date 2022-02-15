@@ -5,8 +5,9 @@ import { useQuery } from '@apollo/client';
 
 function Sentbox(){
 
-    const data = useQuery(QUERY_SENTBOX)
+    const { loading, data } = useQuery(QUERY_SENTBOX)
     const sentbox = data?.sentbox || [];
+    console.log(sentbox);
 
     return (
         <div>

@@ -6,16 +6,19 @@ import { useQuery } from '@apollo/client'
 
 
 function Chat(){
-    const { id: chatid } = useParams();
-    const senderid = chatid
-    const recipientid = chatid
+    const { id } = useParams();
+    const senderid = id
+    const recipientid = id
 
     const { loading, data } = useQuery(QUERY_CHAT, {
-        variables: { otherperson:chatid},
+        variables: { otherperson:id},
       });
 
     const sentraw = data?.sent || []
-    const recievedraw = data?.recieved || []   
+    
+    const recievedraw = data?.recieved || [{sender:''}]   
+    
+    const to = recievedraw[0].sender.email || ''
 
     let chat = []
 
@@ -31,15 +34,15 @@ function Chat(){
         }
     }
 
-    console.log(chat);
     return (
         <div>
-            <Email/>
+            <Email totextbox={to}/>
             {chat.map((emailobj, index) => (
                 <Post 
                 senderfname={emailobj.sender.firstName} 
                 senderlname={emailobj.sender.lastName} 
                 senderemail={emailobj.sender.email}
+                senderid={emailobj.sender._id}
                 subject={emailobj.subject}
                 emailbody={emailobj.emailbody}
                 sentDate={emailobj.sentDate}  

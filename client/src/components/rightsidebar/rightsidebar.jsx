@@ -87,7 +87,7 @@ function Rightsidebar() {
 
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
      <div className='rightsidebar' style={{ backgroundColor:'rgba(255,255,255,0.8)' }}>
        <ul >
          {contactss.map((contactobj) => (
@@ -109,7 +109,7 @@ function Rightsidebar() {
      <Backdrop open={open} />
       <SpeedDial
         ariaLabel="SpeedDial tooltip example"
-        sx={{ position: 'absolute', bottom: 16, right:10 }}
+        sx={{ position: 'fixed', bottom: 16, right:10 }}
         icon={<PeopleIcon />}
         onClose={handleClose}
         onOpen={handleOpen}
@@ -125,13 +125,12 @@ function Rightsidebar() {
             tooltipOpen
             onClick={handleClose}
             tooltipPlacement='left'
-
           />
         ))}
       </SpeedDial>
      </div>
+     </>
 
-     </ThemeProvider>
   );
 }
 

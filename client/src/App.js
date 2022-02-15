@@ -69,18 +69,20 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router >
-        <Route exact path="/">
-          <ApolloProvider client={client}>
-            {Auth.loggedIn() ? (
-              <Home />
-            ):(
-              <LoginSignup />
-            )}
-          </ApolloProvider>
-        </Route>
-        <Route exact path="/About">
-          <About/>
-        </Route>
+        <div>
+          <Route exact path="/">
+            <ApolloProvider client={client}>
+              {Auth.loggedIn() ? (
+                <Home />
+              ):(
+                <LoginSignup />
+              )}
+            </ApolloProvider>
+          </Route>
+          <Route exact path="/About">
+            <About/>
+          </Route>
+        </div>
       </Router>
     </ThemeProvider>
   );

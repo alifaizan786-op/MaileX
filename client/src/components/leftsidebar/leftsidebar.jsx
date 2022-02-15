@@ -120,7 +120,7 @@ function Leftsidebar(props) {
 
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Drawer variant="permanent" open={props.current} className={classes.root} >
         <List className={classes.sidebarPadding}>
           <ListItemButton
@@ -160,7 +160,7 @@ function Leftsidebar(props) {
           </ListItemButton>
         </List>
       </Drawer>
-    </ThemeProvider>
+    </>
   );
 }
 

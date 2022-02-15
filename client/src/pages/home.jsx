@@ -56,10 +56,12 @@ function Home() {
     <Router>
       <div style={{ 
       backgroundImage: `url("https://source.unsplash.com/random/${window.innerWidth}x${window.innerHeight}/?skyscrapers")`,
+      backgroundAttachment: 'fixed',
+      backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundAttachment: 'fixed',
+      minHeight:'100vh',
+      minWidth: '100vh'
     }}>
         <Grid container>
         <Header open={handleDrawerOpen} close={handleDrawerClose} current={draweropen}/>
@@ -72,7 +74,7 @@ function Home() {
           </Route>
           <Route path="/:id">
             <Chat/>
-          </Route>
+          </Route>  
         </Grid>
         <Grid item sm={3} >
           <Rightsidebar />

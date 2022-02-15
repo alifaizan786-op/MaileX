@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/alifaizan786-op/MaileX#readme",
   "dependencies": {
-    "concurrently": "^7.0.0"
+    "concurrently": "^7.0.0",
+    "mdbreact": "^5.2.0"
   }
 }

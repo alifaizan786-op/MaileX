@@ -65,7 +65,6 @@ function Login(props) {
 
 
   return (
-    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -127,7 +126,6 @@ function Login(props) {
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
   );
 }
 

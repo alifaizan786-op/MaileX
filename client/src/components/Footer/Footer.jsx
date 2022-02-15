@@ -1,9 +1,20 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@material-ui/core';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
-
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import ImageIcon from '@mui/icons-material/Image';
+import WorkIcon from '@mui/icons-material/Work';
+import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import TextField from '@mui/material/TextField';
 
 import Box from '@mui/material/Box';
 
@@ -15,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   footerBox:{
       paddingTop: "30px",
-      background: '#e8ffff', 
+      background: '#ffffff', 
       display: "flex",
       justifyContent: 'center'    
     }
@@ -30,7 +41,7 @@ function Footer() {
                <List sx={{ width: '100%',  bgcolor: 'background.paper' }}>
      
       <Typography>
-          © All Right Resever to Mail-Ex LifeTime
+          © MaileX - All Right Resevered 
       </Typography>
      
                </List>

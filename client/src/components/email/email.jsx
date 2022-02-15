@@ -34,7 +34,7 @@ const theme = createTheme({
 
 
 
-export default function Email() {
+export default function Email(props) {
   const [formState, setFormState] = useState({
     recipientemail:'',
     subject:'',
@@ -74,7 +74,6 @@ export default function Email() {
 
 
   return (
-    <ThemeProvider theme={theme}>
     <Card sx={{ maxWidth: 1, marginTop: "50px", boxShadow: 5, borderRadius: '16px', padding: '16px' }}>
         <OutlinedInput
                 sx={{ mt: 1}}
@@ -85,7 +84,7 @@ export default function Email() {
                 id="recipient"
                 name="recipientemail"
                 onChange={handleChange}
-                value={formState.recipientemail}
+                value={props.totextbox || formState.recipientemail}
                 />
         <OutlinedInput
                 sx={{ mt: 1}}
@@ -105,7 +104,7 @@ export default function Email() {
           multiline
           fullWidth
           onChange={handleChange}
-          value={formState.emailbody}
+          value={props.forwardstring || formState.emailbody}
           rows={4}
         />
       <CardActions>
@@ -115,6 +114,5 @@ export default function Email() {
         </Button>
       </CardActions>
     </Card>
-    </ThemeProvider>
   );
 }

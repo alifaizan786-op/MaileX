@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   donationBox:{
       paddingTop: "30px",
       textAlignLast: 'center',
-      background: '#E5FCFD'
+      background: '#ffffff'
       
   },
   donationCard:{
@@ -49,7 +49,7 @@ function Donation(props) {
             </Grid>
                 
             <Grid  xs={12} sm={6} md={4} className={classes.donationCol}>
-                    <Card sx={{background:"#B1F7F8" ,width: 430  }}>
+                    <Card sx={{background:"#ffffff" ,width: 430  }}>
                     
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
