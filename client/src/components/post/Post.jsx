@@ -17,10 +17,10 @@ export default function Post(props) {
   function forward(){
     let emailforward = `
     ---------- Forwarded message ---------
-      from : ${props.senderfname} ${props.senderlname} <${props.senderemail}>,
-      date : ${props.sentDate},
-      subject : ${props.subject},
-      to : ${props.recipientfname} ${props.recipientlname} <${props.recipientemail}>,
+      From : ${props.senderfname} ${props.senderlname} <${props.senderemail}>,
+      Date : ${props.sentDate},
+      Subject : ${props.subject},
+      To : ${props.recipientfname} ${props.recipientlname} <${props.recipientemail}>,
 
 
       ${props.emailbody}

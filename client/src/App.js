@@ -70,7 +70,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router >
         <div>
-          <Route exact path="/">
+
             <ApolloProvider client={client}>
               {Auth.loggedIn() ? (
                 <Home />
@@ -78,7 +78,7 @@ function App() {
                 <LoginSignup />
               )}
             </ApolloProvider>
-          </Route>
+            
           <Route exact path="/About">
             <About/>
           </Route>

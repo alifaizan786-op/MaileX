@@ -53,7 +53,6 @@ function Home() {
 
 
   return (
-    <Router>
       <div style={{ 
       backgroundImage: `url("https://source.unsplash.com/random/${window.innerWidth}x${window.innerHeight}/?skyscrapers")`,
       backgroundAttachment: 'fixed',
@@ -81,7 +80,6 @@ function Home() {
         </Grid>
       </Grid>
     </div>
-  </Router>
   );
 }
 
