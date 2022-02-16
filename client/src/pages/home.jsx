@@ -53,7 +53,7 @@ function Home() {
 
   return (
       <div style={{ 
-      backgroundImage: `url("https://source.unsplash.com/random/${window.innerWidth}x${window.innerHeight}")`,
+      backgroundImage: `url("https://source.unsplash.com/random/${window.innerWidth}x${window.innerHeight}/?buildings")`,
       backgroundAttachment: 'fixed',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
