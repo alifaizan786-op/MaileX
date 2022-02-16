@@ -78,7 +78,6 @@ export default function Email(props) {
         <OutlinedInput
                 sx={{ mt: 1}}
                 startAdornment={<InputAdornment position="start">To:</InputAdornment>}
-                margin="normal"
                 required
                 fullWidth
                 id="recipient"
@@ -89,7 +88,6 @@ export default function Email(props) {
         <OutlinedInput
                 sx={{ mt: 1}}
                 startAdornment={<InputAdornment position="start">Subject:</InputAdornment>}
-                margin="normal"
                 required
                 fullWidth
                 id="subject"
@@ -98,14 +96,14 @@ export default function Email(props) {
                 value={formState.subject}
                 />
       <TextField
-          sx={{ mt: 1}}
+          sx={{ mt: 1, minHeight: '89px'}}
           label="Email Body"
           name='emailbody'
           multiline
           fullWidth
           onChange={handleChange}
           value={props.forwardstring || formState.emailbody}
-          rows={4}
+          minRows={4}
         />
       <CardActions>
         <Button onClick={handleFormSubmit}>

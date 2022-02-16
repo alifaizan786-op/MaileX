@@ -24,7 +24,6 @@ function Home() {
 
   const openinbox = () => {
     setBox('inbox')
-    console.log(box);
   }
 
   const opensentbox = () => {
@@ -54,7 +53,7 @@ function Home() {
 
   return (
       <div style={{ 
-      backgroundImage: `url("https://source.unsplash.com/random/${window.innerWidth}x${window.innerHeight}/?skyscrapers")`,
+      backgroundImage: `url("https://source.unsplash.com/random/${window.innerWidth}x${window.innerHeight}")`,
       backgroundAttachment: 'fixed',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',

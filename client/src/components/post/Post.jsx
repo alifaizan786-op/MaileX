@@ -15,6 +15,7 @@ export default function Post(props) {
   const lname = props.senderlname || ' '
 
   function forward(){
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
     let emailforward = `
     ---------- Forwarded message ---------
       From : ${props.senderfname} ${props.senderlname} <${props.senderemail}>,

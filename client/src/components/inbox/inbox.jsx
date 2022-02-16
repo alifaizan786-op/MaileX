@@ -17,7 +17,6 @@ function Inbox(){
 
 
     const handleforwardobj = (obj) => {
-        console.log(obj);
         setForward(obj)
     }
     
