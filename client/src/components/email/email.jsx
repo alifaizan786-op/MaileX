@@ -41,7 +41,7 @@ export default function Email(props) {
     emailbody:''
   })
   
-  const addEmail = useMutation(ADD_EMAIL);
+  const [addEmail, { error, data }] = useMutation(ADD_EMAIL);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
